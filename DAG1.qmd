@@ -1,0 +1,106 @@
+---
+title: "Redes Gaussianas"
+format: html
+editor: visual
+---
+
+## 
+
+```{r}
+library(tidyverse)
+library(bnlearn)
+library(mgcv)
+
+
+
+```
+
+```{r}
+
+data = read_csv("data/ckd.csv")
+head(data)
+```
+
+```{r}
+data = data|>
+  select(sod, pot, bp, sc, bu)
+
+head(data)
+
+
+
+
+```
+
+```{r}
+dag =model2network("[sod][pot][bp|sod:pot][sc|bp][bu]")
+```
+
+```{r}
+graphviz.plot(dag, shape = "ellipse")
+```
+
+```{r}
+ckd_fit = bn.fit(dag,data=data)
+ckd_fit$bp
+ckd_fit$sc
+```
+
+```{r}
+##Esto efectivamente coincide con lo de arriba intercept:104.9604284   pot:0.3689704  sod:-0.2220313 
+mod_lm = lm(bp ~ pot+ sod, data = data)
+coef(mod_lm)
+
+```
+
+```{r}
+ggplot(data, aes(x = sod, y = bp)) +
+  geom_point(color = "steelblue", alpha = 0.3) +
+  geom_smooth(method = lm, se = FALSE, color = "dodgerblue") + labs(x = "Sodio", y = "Presión arterial") +
+  theme_bw()
+ 
+```
+
+```{r}
+install.packages("mgcv")
+
+```
+
+```{r}
+library(mgcv)
+
+
+```
+
+```{r}
+##gam(hijo ~ padres)
+mod_gam_bp = gam(bp ~ s(sod)+s(pot), data = data, method = "REML")
+
+mod_gam_sc = gam(sc ~ s(bp), data = data, method = "REML")
+
+plot(mod_gam_bp, residuals = TRUE, shade = TRUE)
+plot(mod_gam_sc, residuals = TRUE, shade = TRUE)
+
+```
+
+```{r}
+##No me cargaba gratia, así que no se verá tan bonito: 
+plot(mod_gam_bp, residuals = TRUE, shade = TRUE)
+```
+
+```{r}
+##Modelos de regresión lineal con solo un intersecto, para eso se utilizará el 1.Como no se depende de nadie, la miu se puede poner como el Beta cero que es el intersecto.
+mod_sod = lm(sod~1, data = data)
+mod_pot = lm(pot~1, data = data)
+mod_bu  = lm(bu  ~ 1, data = data)
+
+```
+
+```{r}
+#BIC
+score(dag, data = data, type = "bic-g")
+
+```
+
+```{}
+```
