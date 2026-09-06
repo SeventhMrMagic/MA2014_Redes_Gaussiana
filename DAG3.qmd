@@ -67,18 +67,6 @@ summary(mod_lmrc)
 
 ```
 
-```{r}
-ggplot(clean_data, aes(x = sod, y = bp)) +
-  geom_point(color = "steelblue", alpha = 0.3) +
-  geom_smooth(method = lm, se = FALSE, color = "dodgerblue") + labs(x = "Sodio", y = "Presión arterial") +
-  theme_bw()
- 
-```
-
-```{r}
-install.packages("mgcv")
-
-```
 
 ```{r}
 library(mgcv)
@@ -103,9 +91,6 @@ mod_gam_rc = gam(rc ~ s(sc), data = clean_data, method = "REML")
 
 mod_gam_hemo = gam(hemo ~ s(rc), data = clean_data)
 mod_gam_pcv = gam(pcv ~ s(hemo), data = clean_data)
-
-
-
 ```
 
 ```{r}
@@ -117,43 +102,3 @@ score(dag, data = clean_data, type = "bic-g")
 
 
 
-```{r}
-draw(mod_gam_sg, residuals = TRUE, rug = FALSE) +
-  labs(x = "", y = "s(Humedad)", title = "Efecto parcial de la humedad sobre el nitrogeno") +
-  theme_bw() +
-  theme(plot.title = element_text(hjust = 0.5, face = "bold",
-                                  margin = margin(0, 0, 5, 0)),
-        axis.title.x = element_text(face = "bold"),
-        axis.title.y = element_text(face = "bold", angle = 90),
-        legend.title = element_text(hjust = 0.5, face = "bold"),
-        legend.text = element_text(hjust = 0.5),
-        strip.text = element_text(hjust = 0.5, face = "bold",
-                                  margin = margin(2, 3, 3, 3)),
-        plot.subtitle = element_text(hjust = 0.5, face = "bold",
-                                     size = 10,
-                                     margin = margin(0, 0, 5, 0)))
-```
-```
-
-
-
-```{r}
-##No me cargaba gratia, así que no se verá tan bonito: 
-plot(mod_gam_sg, residuals = TRUE, shade = TRUE)
-```
-
-```{r}
-##Modelos de regresión lineal con solo un intersecto, para eso se utilizará el 1.Como no se depende de nadie, la miu se puede poner como el Beta cero que es el intersecto.
-mod_sod = lm(sod~1, data = data)
-
-
-```
-
-```{r}
-#BIC
-score(dag, data = clean_data, type = "bic-g")
-
-```
-
-```         
-```
