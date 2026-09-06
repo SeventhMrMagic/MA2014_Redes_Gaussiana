@@ -16,13 +16,14 @@
 \DeclareOption{onecolumn}{\OptionNotUsed}
 %\DeclareOption{onecolumn}{\onecolstyletrue}
 \DeclareOption{green}{\renewcommand{\headlinecolor}{\color{green}}}
-\DeclareOption{red}{\renewcommand{\headlinecolor}{\color{slcolor}}}
+\DeclareOption{red}{\renewcommand{\headdalinecolor}{\color{slcolor}}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
 %twocolumn
 
 %Packages
+
 \RequirePackage{tikz}
 \RequirePackage{kantlipsum}
 \RequirePackage{lipsum}
@@ -32,7 +33,8 @@
 \RequirePackage{graphicx}
 \RequirePackage{adjustbox}
 \RequirePackage{wrapfig}
-\RequirePackage[UKenglish, nodayofweek]{datetime}
+\RequirePackage[spanish,es-nodecimaldot]{babel}
+\RequirePackage[spanish, nodayofweek]{datetime}
 \RequirePackage{caption}
 \RequirePackage{subcaption}
 
@@ -53,6 +55,7 @@
 \RequirePackage{appendix}
 \RequirePackage{emptypage}
 \RequirePackage{etoolbox}
+
 
 \usepackage{booktabs}
 \usepackage{ marvosym }
@@ -97,62 +100,69 @@
 }
 
 %Main Title
+% -----------------------------------------------------------------------------
+% Multi-author title block
+% The title occupies the left side and the institutional logo stays on the right.
+% Change the two file names below if your logo files have different names.
+\newcommand{\InstitutionLogoTop}{simbolo-tec-blue.png}
+\newcommand{\InstitutionLogoBottom}{TEC.png}
+
 \title{%
     \vspace{-3.5em}%
-    \begin{minipage}[l]{0.8\textwidth}
-        {\Large\bfseries \myTitle}\\
-        \vspace{-0.5em}
-    \end{minipage}
-    \hspace*{0.5cm}
-    \begin{minipage}[r]{0.155\textwidth}
-        \vskip 0.5em
-        \hfill\includegraphics[width=\linewidth]{simbolo-tec-blue.png}\\
-        \includegraphics[width=\linewidth]{TEC.png}%
+    \noindent
+    \begin{minipage}[t]{0.76\textwidth}
+        \vspace{0pt}% keeps the two minipages aligned at the top
+        {\Large\bfseries \myTitle\par}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.18\textwidth}
+        \vspace{0pt}%
+        \raggedleft
+        \includegraphics[width=\linewidth]{\InstitutionLogoTop}\par
+        \vspace{0.25em}%
+        \includegraphics[width=\linewidth]{\InstitutionLogoBottom}%
     \end{minipage}%
 }
 
-\author{%
-    \vspace{-2em}%
-    \textbf{\MyAuthor$^{1}$}\\
-    \small{$^{1}$\MyDepartment}
-}
+% Values that can be redefined from the main .tex file
+\newcommand{\Keywords}{Keyword1, keyword2, keyword3}
+\newcommand{\myTitle}{Title}
+\newcommand{\MyAuthors}{John J. Smith$^{1}$}
+\newcommand{\MyAffiliations}{$^{1}$Department}
+\newcommand{\AuthorIDs}{1234567}
+\newcommand{\ShortAuthors}{John J. Smith}
 
+% Author information. \MyAuthors may contain \\ to create more than one row.
+\author{%
+    \vspace{-1.6em}%
+    {\normalsize\bfseries \MyAuthors}\\[0.35em]
+    {\small\normalfont \MyAffiliations}%
+}
 
 \RequirePackage{titling}
 \pretitle{% add some rules
-  \vskip 1.5em
+    \vskip 1.5em
     \huge\bfseries
     \begin{flushleft}
-}%, make the fonts bigger, make the title (only) bold
-\posttitle{%
-  \end{flushleft}%
-  %\noindent\vrule height 2.5pt width \textwidth
-  %\vskip .75em plus .25em minus .25em%a increase the vertical spacing a bit, make this particular glue stretchier
 }
+\posttitle{%
+    \end{flushleft}%
+}
+
 \RequirePackage{microtype}
-\newcommand{\Keywords}{Keyword1, keyword2, keyword3}
-\newcommand{\myTitle}{Title}
-\newcommand{\MyAuthor}{John J. Smith}
-\newcommand{\MyDepartment}{Department}
-\newcommand{\ID}{1234567}
 
 \preauthor{%
-    \vspace{0em}
-    %\large
-    \begin{flushleft}
-    \vspace{0.0em}\Large %\bfseries %edit bold
+    \vspace{0em}%
+    \begin{flushleft}%
+    \normalsize
 }
-
-
 
 \postauthor{%
     \end{flushleft}%
-    \vskip 0em
-    \vspace{0em}
-    \noindent
-    \hfill \textls[20]{Student ID: \ID}\\
-    \textls[45]{\textbf{Keywords:}} {\Keywords}
-    \vspace{-0.8em} %change distance from
+    \vspace{0.15em}%
+    \noindent\textls[20]{Matrículas: \AuthorIDs}\\
+    \textls[45]{\textbf{Palabras Clave:}} \Keywords
+    \vspace{-0.8em}%
 }
 
 %Date Settings
@@ -277,7 +287,7 @@
 
 %Fancy Headings
 \pagestyle{fancy}
-\fancyhead[RE,LO]{\slshape{\MyAuthor}}
+\fancyhead[RE,LO]{\slshape{\ShortAuthors}}
 % \fancyhead[C]{\leftmark}
 \fancyfoot[C]{}
 \fancyhead[RO,LE]{Page \thepage \hspace{1pt} of \hypersetup{linkcolor=black}{\pageref*{LastPage}}}
@@ -304,6 +314,7 @@
 \RequirePackage{listings}
 
 \RequirePackage[utf8]{inputenc}
+\RequirePackage{csquotes}
 \DeclareUnicodeCharacter{394}{$\Delta$}
 \DeclareUnicodeCharacter{3008}{$\langle$}
 \DeclareUnicodeCharacter{3009}{$\rangle$}
