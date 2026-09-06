@@ -6,11 +6,12 @@ editor: visual
 
 ## 
 
-```{r}
+``` {r}
+#| echo: False
+#| 
 library(tidyverse)
 library(bnlearn)
 library(mgcv)
-
 
 
 ```
@@ -25,10 +26,9 @@ head(data)
 data = data|>
   select(sod, pot, bp, sc, bu)
 
-head(data)
 
-
-
+clean_data = na.omit(data)
+clean_data
 
 ```
 
@@ -41,7 +41,7 @@ graphviz.plot(dag, shape = "ellipse")
 ```
 
 ```{r}
-ckd_fit = bn.fit(dag,data=data)
+ckd_fit = bn.fit(dag, data=data)
 ckd_fit$bp
 ckd_fit$sc
 ```
@@ -98,9 +98,9 @@ mod_bu  = lm(bu  ~ 1, data = data)
 
 ```{r}
 #BIC
-score(dag, data = data, type = "bic-g")
+score(dag, data = clean_data, type = "bic-g")
 
 ```
 
-```{}
+```         
 ```
