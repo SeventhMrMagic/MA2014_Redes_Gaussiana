@@ -1,0 +1,159 @@
+---
+title: "Redes Gaussianas"
+format: html
+editor: source
+---
+
+## 
+
+
+
+```{r}
+#| echo: False
+library(tidyverse)
+library(bnlearn)
+library(mgcv)
+
+```
+
+```{r}
+
+data = read_csv("data/ckd.csv")
+head(data)
+```
+
+```{r}
+data = data|>
+  select(bgr, su, sg, al, sc, bu, pot, sod, bp, rc, hemo, pcv)
+
+
+clean_data = na.omit(data)
+clean_data <- type.convert(clean_data, "numeric")/100*100
+
+head(clean_data)
+```
+
+```{r}
+dag =model2network("[bgr][al][sc][su|bgr][sg|su:al][bu|sc][sod|sc][pot|sc][bp|sc][rc|sc][hemo|rc][pcv|hemo]")
+```
+
+```{r}
+graphviz.plot(dag, shape = "ellipse")
+```
+
+```{r}
+ckd_fit = bn.fit(dag, data=clean_data)
+ckd_fit$su
+ckd_fit$sg
+```
+```{r}
+ckd_fit$pcv
+ckd_fit$hemo
+ckd_fit$rc
+```
+```{r}
+mod_lmsg = lm(sg ~ al + su, data= clean_data)
+coef(mod_lmsg)
+summary(mod_lmsg)
+```
+
+
+
+```{r}
+##Esto efectivamente coincide con lo de arriba intercept:104.9604284   pot:0.3689704  sod:-0.2220313 
+mod_lmrc = lm(rc ~ sc, data = clean_data)
+coef(mod_lmrc)
+summary(mod_lmrc)
+
+```
+
+```{r}
+ggplot(clean_data, aes(x = sod, y = bp)) +
+  geom_point(color = "steelblue", alpha = 0.3) +
+  geom_smooth(method = lm, se = FALSE, color = "dodgerblue") + labs(x = "Sodio", y = "Presión arterial") +
+  theme_bw()
+ 
+```
+
+```{r}
+install.packages("mgcv")
+
+```
+
+```{r}
+library(mgcv)
+library(gratia)
+
+```
+
+```{r}
+##gam(hijo ~ padres)
+mod_sc = lm(sc~1, data = clean_data)
+mod_bgr = lm(bgr ~ 1, data = clean_data)
+mod_al = lm(al ~ 1, data = clean_data)
+mod_gam_su = gam(su ~ s(bgr), data = clean_data)
+mod_gam_sg = gam(sg ~ s(su, k = 5) + s(al, k =5), data = clean_data, method = "REML")
+
+
+mod_gam_pot = gam(pot ~ s(sc), data = clean_data, method = "REML")
+mod_gam_bu = gam(bu ~ s(sc), data = clean_data, method = "REML")
+mod_gam_bp = gam(bp ~ s(sc), data = clean_data, method = "REML")
+mod_gam_sod = gam(sod ~ s(sc), data = clean_data, method = "REML")
+mod_gam_rc = gam(rc ~ s(sc), data = clean_data, method = "REML")
+
+mod_gam_hemo = gam(hemo ~ s(rc), data = clean_data)
+mod_gam_pcv = gam(pcv ~ s(hemo), data = clean_data)
+
+
+
+```
+
+```{r}
+-1/2*(BIC(mod_sc)+BIC(mod_bgr)+BIC(mod_al)+BIC(mod_gam_su)+BIC(mod_gam_sg)+BIC(mod_gam_pot)+BIC(mod_gam_bu)+BIC(mod_gam_bp)+BIC(mod_gam_sod)+BIC(mod_gam_rc)+BIC(mod_gam_hemo)+BIC(mod_gam_pcv))
+```
+```{r}
+score(dag, data = clean_data, type = "bic-g")
+```
+
+
+
+```{r}
+draw(mod_gam_sg, residuals = TRUE, rug = FALSE) +
+  labs(x = "", y = "s(Humedad)", title = "Efecto parcial de la humedad sobre el nitrogeno") +
+  theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold",
+                                  margin = margin(0, 0, 5, 0)),
+        axis.title.x = element_text(face = "bold"),
+        axis.title.y = element_text(face = "bold", angle = 90),
+        legend.title = element_text(hjust = 0.5, face = "bold"),
+        legend.text = element_text(hjust = 0.5),
+        strip.text = element_text(hjust = 0.5, face = "bold",
+                                  margin = margin(2, 3, 3, 3)),
+        plot.subtitle = element_text(hjust = 0.5, face = "bold",
+                                     size = 10,
+                                     margin = margin(0, 0, 5, 0)))
+```
+```
+
+
+
+```{r}
+##No me cargaba gratia, así que no se verá tan bonito: 
+plot(mod_gam_sg, residuals = TRUE, shade = TRUE)
+```
+
+```{r}
+##Modelos de regresión lineal con solo un intersecto, para eso se utilizará el 1.Como no se depende de nadie, la miu se puede poner como el Beta cero que es el intersecto.
+mod_sod = lm(sod~1, data = data)
+
+
+```
+
+```{r}
+#BIC
+score(dag, data = clean_data, type = "bic-g")
+
+```
+
+```         
+```
