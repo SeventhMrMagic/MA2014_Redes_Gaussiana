@@ -88,5 +88,18 @@ score(dag, data = clean_data, type = "bic-g")
 
 ```
 
-```         
+```{r}
+
+##Query 1 de la DAG1
+########De acuerdo a los altos niveles de sodio, ¿qué tan probable es tener insuficiencia renal? Acá vemos que hay un problema, no tenemos ERC
+cpquery(ckd_fit, event = (sc > 1.4), evidence = (sod > 145), method = "ls", n = 10^6)
+
+```
+
+
+```{r}
+##Query 2
+## "¿Qué tan probable es que la creatinina sérica sea alta, dado que el sodio y el potasio son altos?"
+
+cpquery(ckd_fit, event = (sc > 1.5),evidence = (sod > 145) & (pot >= 5.1),method = "ls", n = 10^6)
 ```
