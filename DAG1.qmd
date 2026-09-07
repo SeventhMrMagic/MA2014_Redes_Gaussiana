@@ -88,7 +88,7 @@ plot(mod_gam_sc, residuals = TRUE, shade = TRUE)
 plot(mod_gam_bp, residuals = TRUE, shade = TRUE)
 ```
 
-```{}
+```         
 ```
 
 ```{r}
@@ -114,13 +114,19 @@ mod_bu  = lm(bu  ~ 1, data = clean_data)
 ```
 
 ```{r}
+
+##No parametricos
 -1/2*(BIC(mod_gam_bp) + BIC(mod_gam_sc) + BIC(mod_sod) + BIC(mod_pot) + BIC(mod_bu))
 
-#Aquí sale [1] -5465.007 No se están forzando las relaciones porque es muy similar al que salió en el BIC parámeyrico. Este es un poco más negativo.
+-1/2*(AIC(mod_gam_bp) + AIC(mod_gam_sc) + AIC(mod_sod) + AIC(mod_pot) + AIC(mod_bu))
+
+#Aquí sale [1] -5465.007 No se están forzando las relaciones porque es muy similar al que salió en el BIC parámeyrico. Este es un poco más negativo. AIC: ] -5431.521
 
 ```
 
 ```{r}
+
+##IMPORTANTE, estas queries se son las que propuso quien dio esta DAG: =)
 ##Query 1
 ########De acuerdo a los altos niveles de sodio, ¿qué tan probable es tener insuficiencia renal? Acá vemos que hay un problema, no tenemos ERC
 cpquery(ckd_fit, event = (sc > 1.4), evidence = (sod > 145), method = "ls", n = 10^6)
