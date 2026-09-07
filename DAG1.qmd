@@ -6,7 +6,7 @@ editor: visual
 
 ## 
 
-``` {r}
+```{r}
 #| echo: False
 #| 
 library(tidyverse)
@@ -41,20 +41,20 @@ graphviz.plot(dag, shape = "ellipse")
 ```
 
 ```{r}
-ckd_fit = bn.fit(dag, data=data)
+ckd_fit = bn.fit(dag, data=clean_data)
 ckd_fit$bp
 ckd_fit$sc
 ```
 
 ```{r}
 ##Esto efectivamente coincide con lo de arriba intercept:104.9604284   pot:0.3689704  sod:-0.2220313 
-mod_lm = lm(bp ~ pot+ sod, data = data)
+mod_lm = lm(bp ~ pot+ sod, data = clean_data)
 coef(mod_lm)
 
 ```
 
 ```{r}
-ggplot(data, aes(x = sod, y = bp)) +
+ggplot(clean_data, aes(x = sod, y = bp)) +
   geom_point(color = "steelblue", alpha = 0.3) +
   geom_smooth(method = lm, se = FALSE, color = "dodgerblue") + labs(x = "Sodio", y = "Presión arterial") +
   theme_bw()
@@ -74,9 +74,9 @@ library(mgcv)
 
 ```{r}
 ##gam(hijo ~ padres)
-mod_gam_bp = gam(bp ~ s(sod)+s(pot), data = data, method = "REML")
+mod_gam_bp = gam(bp ~ s(sod)+s(pot), data = clean_data, method = "REML")
 
-mod_gam_sc = gam(sc ~ s(bp), data = data, method = "REML")
+mod_gam_sc = gam(sc ~ s(bp, k=8), data = clean_data, method = "REML")
 
 plot(mod_gam_bp, residuals = TRUE, shade = TRUE)
 plot(mod_gam_sc, residuals = TRUE, shade = TRUE)
@@ -88,19 +88,50 @@ plot(mod_gam_sc, residuals = TRUE, shade = TRUE)
 plot(mod_gam_bp, residuals = TRUE, shade = TRUE)
 ```
 
-```{r}
-##Modelos de regresión lineal con solo un intersecto, para eso se utilizará el 1.Como no se depende de nadie, la miu se puede poner como el Beta cero que es el intersecto.
-mod_sod = lm(sod~1, data = data)
-mod_pot = lm(pot~1, data = data)
-mod_bu  = lm(bu  ~ 1, data = data)
-
+```{}
 ```
 
 ```{r}
 #BIC
 score(dag, data = clean_data, type = "bic-g")
+#AIC
+score(dag, data = clean_data, type = "aic-g")
+
+##AIC termina siendo el menos negativo entre los dos, estos deben de compararse con las otras DAGs
 
 ```
 
 ```         
+```
+
+```{r}
+##Modelos de regresión lineal con solo un intersecto, para eso se utilizará el 1.Como no se depende de nadie, la miu se puede poner como el Beta cero que es el intersecto.
+#Esto se hace para los no parámetricos, son los que no tienen padres. 
+mod_sod = lm(sod~1, data = clean_data)
+mod_pot = lm(pot~1, data = clean_data)
+mod_bu  = lm(bu  ~ 1, data = clean_data)
+
+```
+
+```{r}
+-1/2*(BIC(mod_gam_bp) + BIC(mod_gam_sc) + BIC(mod_sod) + BIC(mod_pot) + BIC(mod_bu))
+
+#Aquí sale [1] -5465.007 No se están forzando las relaciones porque es muy similar al que salió en el BIC parámeyrico. Este es un poco más negativo.
+
+```
+
+```{r}
+##Query 1
+########De acuerdo a los altos niveles de sodio, ¿qué tan probable es tener insuficiencia renal? Acá vemos que hay un problema, no tenemos ERC
+cpquery(ckd_fit, event = (sc > 1.4), evidence = (sod > 145), method = "ls", n = 10^6)
+
+#Aquí me da [1] 0.6313937
+```
+
+```{r}
+##Query 2
+## "¿Qué tan probable es que la creatinina sérica sea alta, dado que el sodio y el potasio son altos?"
+
+cpquery(ckd_fit, event = (sc > 1.5),evidence = (sod > 145) & (pot >= 5.1),method = "ls", n = 10^6)
+##Aquí me sale [1] 0.6336476
 ```
