@@ -1,5 +1,9 @@
 \documentclass{Academic}
 
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{graphicx}
+
 \begin{document}
 %Easy customisation of title page
 %TC:ignore
@@ -28,14 +32,6 @@ el efecto de biomarcadores en la Enfermedad renal crónica: Un análisis probabi
 %\vspace{-1.9em}\noindent\rule{\textwidth}{1pt} %add this line if not using abstract
 \onehalfspacing
 %TC:endignore
-
-\begin{abstract}
-
-La enfermedad renal crónica (ERC) es una pérdida progresiva de la función renal que afectó a más de 800 millones de personas en 2017, con frecuencia subdiagnosticada por presentar síntomas en etapas avanzadas. Su detección temprana podría reducir significativamente su carga clínica y económica. El siguiente estudio empleó un enfoque cuantitativo no experimental basado en redes bayesianas gaussianas (GBN) para modelar las relaciones de dependencia probabilística entre biomarcadores clínicos asociados a la ERC, utilizando la base de datos ckd.csv. Se construyeron tres DAGs con distintos subconjuntos de variables, definidos con apoyo de estudiantes y profesores de medicina, ajustados con bn.fit() en R (paquete bnlearn) y evaluados mediante BIC y AIC.
-
-\textbf{Palabras clave:} 
-
-\end{abstract}
 
 \section{Introducción}
 
@@ -94,8 +90,8 @@ que se muestra este tema queda reflejado en la abundante bibliografía que propo
 ámbito médico y en el esfuerzo que se está dedicando a nivel mundial al desarrollo de estas redes para apoyar 
 la toma de decisiones clínicas \cite{Kyrimi}. 
 
-En este trabajo se utiliza la base de datos \texttt{ckd.csv}, una base de datos que contiene información 
-sobre diferentes marcadores para una muestra de pacientes con y sin ERC. Con la informacion numérica disponible
+En este trabajo se utiliza la base de datos \texttt{ckd.csv}, una base de datos que contiene 400 registros sobre 
+diferentes marcadores para una muestra de pacientes con y sin ERC. Con la informacion numérica disponible
 se construyeron tres GBN. El modelo busca analizar las relaciones probabilísticas entre distintos 
 biomarcadores de los pacientes de la base de datos. Posterior a ello se realizaron seis consultas probabilísticas 
 orientadas a estudiar cómo el nivel de ciertos biomarcadores afectan a otros, y cómo ciertos niveles
@@ -168,12 +164,97 @@ con \texttt{cpquery()} (utilizando una \(n=10^{6}\) y verificado con ponderació
 verosimilitud, \texttt{method="lw"}).
 
 
-\section{Resultados}
+\section{Aplicación}
+
+\subsection{Resultados}
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{DAG1N.jpeg}
+        \caption{DAG 1}
+        \label{fig:dag1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{DAG2N.jpeg}
+        \caption{DAG 2}
+        \label{fig:dag2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{DAG3N.jpeg}
+        \caption{DAG 3}
+        \label{fig:dag3}
+    \end{subfigure}
+
+    \caption{DAGs propuestos para representar las relaciones 
+    de dependencia entre las variables de interés.}
+    \label{fig:dags}
+\end{figure}
 
 
+\begin{table}[htbp]
+    \centering
+    \caption{Comparación de los modelos lineales y no paramétricos mediante los criterios BIC y AIC.}
+    \label{tab:aic_bic_dags}
+    
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lrrrrlr}
+        \toprule
+        \textbf{DAG} &
+        \textbf{BIC lineal} &
+        \makecell{\textbf{BIC no}\\\textbf{paramétrico}} &
+        \textbf{Mejor BIC} &
+        \textbf{AIC lineal} &
+        \makecell{\textbf{AIC no}\\\textbf{paramétrico}} &
+        \textbf{Mejor AIC} \\
+        \midrule
+        
+        DAG 1 &
+        \textbf{-5458.132} &
+        -5465.007 &
+        \makecell[l]{Lineal\\(+6.875)} &
+        -5434.101 &
+        \textbf{-5431.521} &
+        \makecell[l]{No param.\\(+2.580)} \\
+        
+        \addlinespace
+        
+        DAG 2 &
+        \textbf{-3333.424} &
+        -3341.827 &
+        \makecell[l]{Lineal\\(+8.403)} &
+        -3318.582 &
+        \textbf{-3316.674} &
+        \makecell[l]{No param.\\(+1.908)} \\
+        
+        \addlinespace
+        
+        DAG 3 &
+        -5693.505 &
+        \textbf{-5605.652} &
+        \makecell[l]{No param.\\(+87.853)} &
+        -5636.931 &
+        \textbf{-5481.793} &
+        \makecell[l]{No param.\\(+155.138)} \\
+        
+        \bottomrule
+    \end{tabular}%
+    }
+    
+    \begin{flushleft}
+        \footnotesize
+        \textit{Nota.} Los valores entre paréntesis indican la diferencia 
+        entre el mejor modelo y la alternativa dentro de cada DAG.
+    \end{flushleft}
+\end{table}
 
-
-\section{Discuciones}
+\subsection{Discuciones}
 
 
 \section{Conclusiones}
