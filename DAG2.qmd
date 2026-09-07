@@ -55,7 +55,7 @@ mod_sod = lm(sod ~ 1 , data = clean_data)
 mod_gam_hemo = gam(hemo ~ s(rc), data = clean_data)
 mod_gam_bp = gam(bp ~ s(hemo) + s(pot) + s(sod), data = clean_data)
 mod_gam_sc = gam(sc ~ s(bp, k = 3), data = clean_data)
-mod_gam_bu = gam(bu ~ s(bp, k = 3) + s(sod, k = 3), data = data, method = "REML")
+mod_gam_bu = gam(bu ~ s(bp, k = 3) + s(sod, k = 3), data = clean_data, method = "REML")
 ```
 
 ```{r}
@@ -73,7 +73,7 @@ score(dag, data = clean_data, type = "aic-g")
 ```{r}
 
 ##Query 1 de la DAG1
-########De acuerdo a los altos niveles de sodio, ¿qué tan probable es tener insuficiencia renal? Acá vemos que hay un problema, no tenemos ERC
+##¿qué tan probablie es tener altos niveles de creatinina sérica dado que se tiene un alto nivel de sodio? 
 cpquery(ckd_fit, event = (sc > 1.4), evidence = (sod > 145), method = "ls", n = 10^6)
 
 ```
@@ -83,5 +83,30 @@ cpquery(ckd_fit, event = (sc > 1.4), evidence = (sod > 145), method = "ls", n = 
 ##Query 2
 ## "¿Qué tan probable es que la creatinina sérica sea alta, dado que el sodio y el potasio son altos?"
 
-cpquery(ckd_fit, event = (sc > 1.5),evidence = (sod > 145) & (pot >= 5.1),method = "ls", n = 10^6)
+cpquery(ckd_fit, event = (sc > 1.4),evidence = (sod > 145) & (pot >= 5.1),method = "ls", n = 10^6)
 ```
+```{r}
+###Query 3  Dado que un paciente presenta creatinina y urea elevadas, ¿qué probabilidad tiene de presentar hiperpotasemia? (se mide con potasio)
+cpquery(ckd_fit, event = (pot >= 5.1), evidence = (sc > 1.4) & (bu > 40), method = "ls", n = 10^6)
+```
+```{r}
+##Query 4 ¿Cuál es la probabilidad de que un paciente presente anemia, definida como hemoglobina menor de 12 g/dL, si tiene una creatinina sérica de 3.0 mg/dL y un conteo de eritrocitos de 3.5 millones/µL?
+cpquery(ckd_fit, event = (hemo < 12), evidence = list(sc = 3.0, rc = 3.5), method = "lw")
+```
+```{r}
+summary(clean_data$rc)
+```
+
+```{r}
+##Query 5 ¿Qué tan probable es que un paciente presente niveles elevados de creatinina sérica cuando presenta niveles elevados de presión arterial?
+cpquery(ckd_fit, event = (sc > 1.4), evidence = (bp > 140), method = "ls", n = 10^6)
+```
+```{r}
+
+##Query 6 - ¡Qué tan probable es que un paciente presente niveles elevados de urea en sangre (mayores a 40 mg/dL) dado que tiene niveles elevados de sodio (mayores a 145 mEq/L)?
+cpquery(ckd_fit,event = (bu > 40), evidence = (sod > 145),method = "ls", n = 10^6)
+```
+
+
+
+
