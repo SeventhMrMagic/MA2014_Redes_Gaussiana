@@ -23,7 +23,7 @@ el efecto de biomarcadores en la Enfermedad renal crónica: Un análisis probabi
 
 \renewcommand{\ShortAuthors}{Cordero Rivera et al.}
 
-\renewcommand{\Keywords}{enfermedad crónica renal, red bayesiana, red bayesiana gaussiana, keyword4, keyword5}
+\renewcommand{\Keywords}{enfermedad crónica renal, red bayesiana, red bayesiana gaussiana, asistencia médica, análisis probabilístico}
 \maketitle
 %\vspace{-1.9em}\noindent\rule{\textwidth}{1pt} %add this line if not using abstract
 \onehalfspacing
@@ -59,14 +59,50 @@ Los estudios epidemiológicos han concientizado sobre el problema de la ERC no
 diagnosticada y sugieren que su detección y tratamiento tempranos reducirán
 la carga mundial que suponen los pacientes que necesitan diálisis \cite{Taal}.
 
-Sin embargo,
+Sin embargo, la prevención y diagnóstico temprano de la ERC no es una tarea sencilla, 
+esto se debe principalmente a que hay una gran cantidad de factores que afectan al 
+desarrollo de esta enfermedad: La dieta, consumo de drogas, predisposición genética, 
+y otras enfermedades son posibles factores a considerar para la detección temprana de la 
+ERC. Esta idea fue explorada por Taal et al. Proponen que los factores de riesgo de progresión de la ERC se
+incorporen a un sistema de puntuación multivariable que permita
+predecir el riesgo futuro de un individuo de padecer insuficiencia renal terminal. Esto permitiría
+realizar pruebas específicas de la ERC en la población e identificar a
+los pacientes con alto riesgo de progresión de la ERC para aplicarles una
+intervención más intensiva. \cite{Taal}.
 
+El uso de biomarcadores para la predicción del desarrollo de la ERC ha sido explorada
+de manera muy efectiva por Navdeep et al. Dónde se realizaron diversos modelos predictivos con el 
+objetivo de poder validar los modelos que predigan la progresión de la ERC. El modelo 
+más preciso incluía la edad, el sexo, la Tasa de Filtración Glomerular estimada, la albuminuria, 
+el calcio sérico, el fosfato sérico, el bicarbonato sérico y la albúmina sérica. \cite{Navdeep}.
+Esto nos muestra la importancia de los biomarcadores para la predicción de la ERC.
+
+Si bien estos enfoques muestran ser bastante efectivos, nuestro trabajo será enfocado hacia el análisis 
+de los biomarcadores de una persona a través de una red bayesiana gaussiana (GBN).Las GBN son modelos 
+probabilísticos que permiten mostrar las relaciones de causalidad entre distintas
+variables numéricas con distribución normal utilizando un DAG. Las redes bayesianas resultan útiles para modelar 
+problemas médicos complejos que requieren razonamiento en condiciones de incertidumbre. El gran interés 
+que se muestra este tema queda reflejado en la abundante bibliografía que propone redes de Bayes para el 
+ámbito médico y en el esfuerzo que se está dedicando a nivel mundial al desarrollo de estas redes para apoyar 
+la toma de decisiones clínicas \cite{Kyrimi}. 
+
+En este trabajo se utiliza la base de datos \texttt{ckd.csv}, una base de datos que contiene información 
+sobre diferentes marcadores para una muestra de pacientes con y sin ERC. Con la informacion numérica disponible
+se construyeron tres GBN. El modelo busca analizar las relaciones probabilísticas entre distintos 
+biomarcadores de los pacientes de la base de datos. Posterior a ello se realizaron seis consultas probabilísticas 
+orientadas a estudiar cómo el nivel de ciertos biomarcadores afectan a otros, y cómo ciertos niveles
+de biomarcadores influyen en el diagnóstico de la ERC.
+
+El objetivo de este análisis es implementar un modelo probabilístico que ayude a comprender cómo
+la interacción y dependencias de estos biomarcadores influyen en el diagnóstico de la ERC para 
+descubrir tendencias tempranas dentro de los biomarcadores que podrían apuntar 
+al desarrollo de la ERC y actuar con base en esa información.
 
 \section{Metodología}
 
 \subsection{Enfoque y tipo de estudio}
-Se empleó un enfoque cuantitativo, no experimental, basado en el uso de GBN para encontrar 
-las relaciones de dependencia probabilística entre los biomarcadores
+Se empleó un enfoque cuantitativo, correlacional, no experimental, basado en el uso de 
+GBN para encontrar las relaciones de dependencia probabilística entre los biomarcadores.
 
 \subsection{Fuente de datos}
 Se nos otorgo una base de datos en un archivo .csv con el nombre ckd.csv, esta base de datos cuenta con las siguientes variables:
