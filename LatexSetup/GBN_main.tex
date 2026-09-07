@@ -69,6 +69,35 @@ Se empleó un enfoque cuantitativo, no experimental, basado en el uso de GBN par
 las relaciones de dependencia probabilística entre los biomarcadores
 
 \subsection{Fuente de datos}
+Se nos otorgo una base de datos en un archivo .csv con el nombre ckd.csv, esta base de datos cuenta con las siguientes variables:
+\begin{itemize}
+    \item age: Age.
+    \item bp: Blood pressure.
+    \item sg: Specific gravity.
+    \item al: Albumin.
+    \item su: Sugar.
+    \item rbc: Red blood cells.
+    \item pc: Pus cell.
+    \item pcc: Pus cell clumps.
+    \item ba: Bacteria.
+    \item bgr: Blood glucose random.
+    \item bu: Blood urea.
+    \item sc: Serum creatinine.
+    \item sod: Sodium.
+    \item pot: Potassium.
+    \item hemo: Hemoglobin.
+    \item pcv: Packed cell volume.
+    \item wc: White blood cell count.
+    \item rc: Red blood cell count.
+    \item htn: Hypertension.
+    \item dm: Diabetes mellitus.
+    \item cad: Coronary artery disease.
+    \item appet: Appetite.
+    \item pe: Pedal edema.
+    \item ane: Anemia.
+    \item class: Diagnosis.
+\end{itemize}
+Adicionalemente a esto, entrevistamos a profesores y alumnos de la escuela de medicina del Instituto Tecnológico y de Estudios Superiores de Monterrey, que esten familiarizados con el ERC, para que nos ayudaran a generar 3 DAG`s que represente las relaciones de dependencia, ademas de esto, a las personas mas especialistas en el tema se les solicito que nos ayudaran a proponer 2 queries para poderlas resolver utilizando nuestro modelo.
 
 
 \subsection{Herramientas}
@@ -79,7 +108,7 @@ Quarto (v1.8.25), utilizando los paquetes \texttt{bnlearn} (v5.2.1)\cite{Bnlearn
 y \texttt{tidyverse} (v2.0.0).
 
 \subsection{Preprocesamiento}
-5
+Durante este proceso se redujo el tamaño de las DAG`s para que solo tuvieran las variables que se iban a utilizar para la DAG respectiva, asi mismo, se limpiaron los datos en todas las DAG`s utilizando la funcion na.omit en Rstudio para que no existiera ninguna fila con datos vacios. Para la primer DAG solo se seleccionaron las variables siguientes: \texttt{sod, pot, bp, sc, bu}. Para la segunda DAG se seleccionaron las siguientes: \texttt{sod, bp, sc}. Y para la tercer DAG se utilizaron: \texttt{bgr, su, sg, al, sc, bu, pot, sod, bp, rc, hemo, pcv}, para esta tercer DAG tambien se convirtieron todas las variables a tipo numericas.
 
 \subsection{Construcción y selección del modelo global}
 Para la construcción de las DAGs se utilizó el criterio de 3 estudiantes de la escuela de 
