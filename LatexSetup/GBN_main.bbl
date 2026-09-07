@@ -19,35 +19,277 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
-    \entry{CRD}{article}{}{}
+    \entry{definicion}{online}{}{}
       \name{author}{1}{}{%
-        {{hash=ed164329d3396939ff52153bacdb7804}{%
-           family={Parmar},
-           familyi={P\bibinitperiod},
-           given={Malvinder\bibnamedelima S.},
-           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=0b70da9e55c985ffa772ce858b23840a}{%
+           family={{MedlinePlus}},
+           familyi={M\bibinitperiod}}}%
       }
-      \strng{namehash}{ed164329d3396939ff52153bacdb7804}
-      \strng{fullhash}{ed164329d3396939ff52153bacdb7804}
-      \strng{fullhashraw}{ed164329d3396939ff52153bacdb7804}
-      \strng{bibnamehash}{ed164329d3396939ff52153bacdb7804}
-      \strng{authorbibnamehash}{ed164329d3396939ff52153bacdb7804}
-      \strng{authornamehash}{ed164329d3396939ff52153bacdb7804}
-      \strng{authorfullhash}{ed164329d3396939ff52153bacdb7804}
-      \strng{authorfullhashraw}{ed164329d3396939ff52153bacdb7804}
+      \list{organization}{1}{%
+        {Biblioteca Nacional de Medicina de los Estados Unidos}%
+      }
+      \strng{namehash}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{fullhash}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{fullhashraw}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{bibnamehash}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{authorbibnamehash}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{authornamehash}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{authorfullhash}{0b70da9e55c985ffa772ce858b23840a}
+      \strng{authorfullhashraw}{0b70da9e55c985ffa772ce858b23840a}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{British Medical Journal}
-      \field{title}{Chronic renal disease}
-      \field{volume}{325}
-      \field{year}{2002}
-      \field{pages}{85\bibrangedash 90}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1136/bmj.325.7355.85
+      \field{title}{Enfermedad renal crónica}
+      \field{urlday}{6}
+      \field{urlmonth}{9}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://medlineplus.gov/spanish/ency/article/000471.htm
       \endverb
+      \verb{url}
+      \verb https://medlineplus.gov/spanish/ency/article/000471.htm
+      \endverb
+    \endentry
+    \entry{Csaba}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c63b79dd78e21cace7a693b25562409b}{%
+           family={Kovesdy},
+           familyi={K\bibinitperiod},
+           given={Csaba\bibnamedelima P.},
+           giveni={C\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{c63b79dd78e21cace7a693b25562409b}
+      \strng{fullhash}{c63b79dd78e21cace7a693b25562409b}
+      \strng{fullhashraw}{c63b79dd78e21cace7a693b25562409b}
+      \strng{bibnamehash}{c63b79dd78e21cace7a693b25562409b}
+      \strng{authorbibnamehash}{c63b79dd78e21cace7a693b25562409b}
+      \strng{authornamehash}{c63b79dd78e21cace7a693b25562409b}
+      \strng{authorfullhash}{c63b79dd78e21cace7a693b25562409b}
+      \strng{authorfullhashraw}{c63b79dd78e21cace7a693b25562409b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{1}
+      \field{journaltitle}{International society of nephrology}
+      \field{title}{Epidemiology of chronic kidney disease: an update 2022}
+      \field{volume}{12}
+      \field{year}{2022}
+      \field{pages}{7\bibrangedash 11}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1016/j.kisu.2021.11.003
+      \endverb
+    \endentry
+    \entry{Taal}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=8471995f356095cedc91663d1c03ef47}{%
+           family={Taal},
+           familyi={T\bibinitperiod},
+           given={M.\bibnamedelimi W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=55fe047d11023a9decdfd8a35cd967bc}{%
+           family={Brenner},
+           familyi={B\bibinitperiod},
+           given={B.\bibnamedelimi M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{fullhash}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{fullhashraw}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{bibnamehash}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{authorbibnamehash}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{authornamehash}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{authorfullhash}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \strng{authorfullhashraw}{ce04c4154a1c618c0d9b1ed41c7cca9f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International society of nephrology}
+      \field{number}{10}
+      \field{title}{Predicting initiation and progression of chronic kidney disease: Developing renal risk scores}
+      \field{volume}{70}
+      \field{year}{2006}
+      \field{pages}{1694\bibrangedash 1705}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1038/sj.ki.5001794
+      \endverb
+    \endentry
+    \entry{Navdeep}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f1f2132a9433851b81a253babc489952}{%
+           family={N},
+           familyi={N\bibinitperiod},
+           given={Tangri},
+           giveni={T\bibinitperiod}}}%
+        {{hash=dd680a318e5c665da4fce5b9fadb0259}{%
+           family={LA},
+           familyi={L\bibinitperiod},
+           given={Stevens},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6c0e55208007dda410f7f976c8ec8f47}{%
+           family={J},
+           familyi={J\bibinitperiod},
+           given={Griffith},
+           giveni={G\bibinitperiod}}}%
+        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{9363b546aa5dde25518d60b2af7f2282}
+      \strng{fullhash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{fullhashraw}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{bibnamehash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{authorbibnamehash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{authornamehash}{9363b546aa5dde25518d60b2af7f2282}
+      \strng{authorfullhash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{authorfullhashraw}{ae11e530163fad7cec3c6afc00a3a192}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{JAMA}
+      \field{number}{15}
+      \field{title}{A Predictive Model for Progression of Chronic Kidney Disease to Kidney Failure}
+      \field{volume}{305}
+      \field{year}{2011}
+      \field{pages}{1553\bibrangedash 1559}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1001/jama.2011.451
+      \endverb
+    \endentry
+    \entry{Kyrimi}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=841f2bd8b8651a543b3b260bdc93c1d9}{%
+           family={Kyrimi},
+           familyi={K\bibinitperiod},
+           given={Evangelia},
+           giveni={E\bibinitperiod}}}%
+        {{hash=f68be353f922ce33c73099b867fd282b}{%
+           family={McLachlan},
+           familyi={M\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d6cb89d2cf6fd0884afbc16c97644417}{%
+           family={Dube},
+           familyi={D\bibinitperiod},
+           given={Kudakwashe},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f4f329f10740afba9d4624c911735d3d}{%
+           family={Neves},
+           familyi={N\bibinitperiod},
+           given={Mariana\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=7832b40f126e4b99773388c15a7235e8}{%
+           family={Fahmi},
+           familyi={F\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2b1d6ef14aea29937d7ad24ba6e10521}{%
+           family={Fenton},
+           familyi={F\bibinitperiod},
+           given={Norman},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{e273a5ad18e604a14d71cea3e346ae0b}
+      \strng{fullhash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{fullhashraw}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{bibnamehash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{authorbibnamehash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{authornamehash}{e273a5ad18e604a14d71cea3e346ae0b}
+      \strng{authorfullhash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{authorfullhashraw}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence in Medicine}
+      \field{title}{A comprehensive scoping review of Bayesian networks in healthcare: Past, present and future}
+      \field{volume}{117}
+      \field{year}{2021}
+      \field{pages}{1553\bibrangedash 1559}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.artmed.2021.102108.
+      \endverb
+    \endentry
+    \entry{R}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=dcdebb6b35bff7c0568bf8c50ef8626d}{%
+           family={{R Core Team}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Vienna, Austria}%
+      }
+      \list{organization}{1}{%
+        {R Foundation for Statistical Computing}%
+      }
+      \strng{namehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{fullhash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{fullhashraw}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{bibnamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{authorbibnamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{authornamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{authorfullhash}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \strng{authorfullhashraw}{dcdebb6b35bff7c0568bf8c50ef8626d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{R: A Language and Environment for Statistical Computing}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.R-project.org/
+      \endverb
+      \verb{url}
+      \verb https://www.R-project.org/
+      \endverb
+    \endentry
+    \entry{Bnlearn}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=b972290748083aebb53dafb73bcafd30}{%
+           family={Scutari},
+           familyi={S\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+        {{hash=319bca9929053bfa981acb4e1e0096bd}{%
+           family={Denis},
+           familyi={D\bibinitperiod},
+           given={Jean-Baptiste},
+           giveni={J\bibinithyphendelim B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton}%
+      }
+      \list{publisher}{2}{%
+        {Chapman}%
+        {Hall}%
+      }
+      \strng{namehash}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{fullhash}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{fullhashraw}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{bibnamehash}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{authorbibnamehash}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{authornamehash}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{authorfullhash}{23bd3bda4e647feb93d8058cd957bbf6}
+      \strng{authorfullhashraw}{23bd3bda4e647feb93d8058cd957bbf6}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{note}{ISBN 978-0367366513}
+      \field{title}{Bayesian Networks with Examples in {R}}
+      \field{year}{2021}
     \endentry
   \enddatalist
 \endrefsection

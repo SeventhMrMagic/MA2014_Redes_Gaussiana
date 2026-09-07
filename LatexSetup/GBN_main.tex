@@ -1,10 +1,15 @@
 \documentclass{Academic}
 
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{graphicx}
+
 \begin{document}
 %Easy customisation of title page
 %TC:ignore
 \myabstract{\include{abstract}}
-\renewcommand{\myTitle}{Uso de Redes Bayesianas Gaussianas para el análisis de la Enfermedad Renal Crónica}
+\renewcommand{\myTitle}{Uso de Redes Bayesianas Gaussianas para comprender 
+el efecto de biomarcadores en la Enfermedad renal crónica: Un análisis probabilístico}
 \renewcommand{\MyAuthors}{%
     Jessica Milagros Cordero Rivera$^{1}$ \quad
     Diego Rodrigo González Ramírez$^{1}$\\[0.2em]
@@ -22,7 +27,7 @@
 
 \renewcommand{\ShortAuthors}{Cordero Rivera et al.}
 
-\renewcommand{\Keywords}{Keyword 1, Keyword 2, Keyword 3}
+\renewcommand{\Keywords}{enfermedad crónica renal, red bayesiana, red bayesiana gaussiana, asistencia médica, análisis probabilístico}
 \maketitle
 %\vspace{-1.9em}\noindent\rule{\textwidth}{1pt} %add this line if not using abstract
 \onehalfspacing
@@ -31,22 +36,226 @@
 \section{Introducción}
 
 
-La enfermedad renal crónica es \cite{CRD}.
+La enfermedad renal crónica (ERC) es la pérdida progresiva de la función de los riñones, 
+afectando su función de eliminar residuos y exceso de agua del cuerpo. Al encontrarse
+en una etapa tardía del ERC el paciente puede experimentar síntomas como, entre otros:
 
+\begin{itemize}
+  \item Piel anormalmente oscura o clara
+  \item Dolor de huesos
+  \item Problemas para concentrarse o pensar
+  \item Fasciculaciones musculares o calambres
+  \item Susceptibilidad a hematomas
+  \item Sed excesiva
+  \item Hinchazón en las manos y en los pies
+\end{itemize}
+
+A muchas personas no se les diagnostica la ERC sino hasta que han perdido 
+gran parte de su función renal.\cite{definicion}. 
+En 2017 la ERC afectó a más de 800 millones de personas y su tasa de mortalidad ha 
+estado en aumento en este siglo. Además, debido a otras enfermedades cómo la diabetes mellitus 
+y la obesidad, el riesgo de padecer ERC aumenta aún más y con ello, sus complicaciones \cite{Csaba}.
+
+Es evidentemente claro que la identificación y diagnóstico de la ERC beneficiaría; para unas, 
+La calidad de vida de millones de personas que podrían desarrollar esta enfermedad en un 
+futuro; y para otras, evitar fallecer por esta enfermedad o complicaciones derivadas de ella. 
+Los estudios epidemiológicos han concientizado sobre el problema de la ERC no 
+diagnosticada y sugieren que su detección y tratamiento tempranos reducirán
+la carga mundial que suponen los pacientes que necesitan diálisis \cite{Taal}.
+
+Sin embargo, la prevención y diagnóstico temprano de la ERC no es una tarea sencilla, 
+esto se debe principalmente a que hay una gran cantidad de factores que afectan al 
+desarrollo de esta enfermedad: La dieta, consumo de drogas, predisposición genética, 
+y otras enfermedades son posibles factores a considerar para la detección temprana de la 
+ERC. Esta idea fue explorada por Taal et al. Proponen que los factores de riesgo de progresión de la ERC se
+incorporen a un sistema de puntuación multivariable que permita
+predecir el riesgo futuro de un individuo de padecer insuficiencia renal terminal. Esto permitiría
+realizar pruebas específicas de la ERC en la población e identificar a
+los pacientes con alto riesgo de progresión de la ERC para aplicarles una
+intervención más intensiva. \cite{Taal}.
+
+El uso de biomarcadores para la predicción del desarrollo de la ERC ha sido explorada
+de manera muy efectiva por Navdeep et al. Dónde se realizaron diversos modelos predictivos con el 
+objetivo de poder validar los modelos que predigan la progresión de la ERC. El modelo 
+más preciso incluía la edad, el sexo, la Tasa de Filtración Glomerular estimada, la albuminuria, 
+el calcio sérico, el fosfato sérico, el bicarbonato sérico y la albúmina sérica. \cite{Navdeep}.
+Esto nos muestra la importancia de los biomarcadores para la predicción de la ERC.
+
+Si bien estos enfoques muestran ser bastante efectivos, nuestro trabajo será enfocado hacia el análisis 
+de los biomarcadores de una persona a través de una red bayesiana gaussiana (GBN).Las GBN son modelos 
+probabilísticos que permiten mostrar las relaciones de causalidad entre distintas
+variables numéricas con distribución normal utilizando un DAG. Las redes bayesianas resultan útiles para modelar 
+problemas médicos complejos que requieren razonamiento en condiciones de incertidumbre. El gran interés 
+que se muestra este tema queda reflejado en la abundante bibliografía que propone redes de Bayes para el 
+ámbito médico y en el esfuerzo que se está dedicando a nivel mundial al desarrollo de estas redes para apoyar 
+la toma de decisiones clínicas \cite{Kyrimi}. 
+
+En este trabajo se utiliza la base de datos \texttt{ckd.csv}, una base de datos que contiene 400 registros sobre 
+diferentes marcadores para una muestra de pacientes con y sin ERC. Con la informacion numérica disponible
+se construyeron tres GBN. El modelo busca analizar las relaciones probabilísticas entre distintos 
+biomarcadores de los pacientes de la base de datos. Posterior a ello se realizaron seis consultas probabilísticas 
+orientadas a estudiar cómo el nivel de ciertos biomarcadores afectan a otros, y cómo ciertos niveles
+de biomarcadores influyen en el diagnóstico de la ERC.
+
+El objetivo de este análisis es implementar un modelo probabilístico que ayude a comprender cómo
+la interacción y dependencias de estos biomarcadores influyen en el diagnóstico de la ERC para 
+descubrir tendencias tempranas dentro de los biomarcadores que podrían apuntar 
+al desarrollo de la ERC y actuar con base en esa información.
 
 \section{Metodología}
 
- En su metodologia, no olviden incluir las versiones de los softwares que utlizan, todas las librerias y datos que emplean, sean muy descriptivos
+\subsection{Enfoque y tipo de estudio}
+Se empleó un enfoque cuantitativo, correlacional, no experimental, basado en el uso de 
+GBN para encontrar las relaciones de dependencia probabilística entre los biomarcadores.
+
+\subsection{Fuente de datos}
+Se nos otorgo una base de datos en un archivo .csv con el nombre ckd.csv, esta base de datos cuenta con las siguientes variables:
+\begin{itemize}
+    \item age: Age.
+    \item bp: Blood pressure.
+    \item sg: Specific gravity.
+    \item al: Albumin.
+    \item su: Sugar.
+    \item rbc: Red blood cells.
+    \item pc: Pus cell.
+    \item pcc: Pus cell clumps.
+    \item ba: Bacteria.
+    \item bgr: Blood glucose random.
+    \item bu: Blood urea.
+    \item sc: Serum creatinine.
+    \item sod: Sodium.
+    \item pot: Potassium.
+    \item hemo: Hemoglobin.
+    \item pcv: Packed cell volume.
+    \item wc: White blood cell count.
+    \item rc: Red blood cell count.
+    \item htn: Hypertension.
+    \item dm: Diabetes mellitus.
+    \item cad: Coronary artery disease.
+    \item appet: Appetite.
+    \item pe: Pedal edema.
+    \item ane: Anemia.
+    \item class: Diagnosis.
+\end{itemize}
+Adicionalemente a esto, entrevistamos a profesores y alumnos de la escuela de medicina del Instituto Tecnológico y de Estudios Superiores de Monterrey, que esten familiarizados con el ERC, para que nos ayudaran a generar 3 DAG`s que represente las relaciones de dependencia, ademas de esto, a las personas mas especialistas en el tema se les solicito que nos ayudaran a proponer 2 queries para poderlas resolver utilizando nuestro modelo.
 
 
+\subsection{Herramientas}
+Todos los análisis probabilisticos se realizaron utilizando entorno de desarrollo 
+integrado \texttt{RStudio} (v2026.08.2), utilizando el lenguaje de programación 
+estadístico \texttt{R} (v4.5.3) \cite{R} mediante el sistema de código abierto 
+Quarto (v1.8.25), utilizando los paquetes \texttt{bnlearn} (v5.2.1)\cite{Bnlearn} 
+y \texttt{tidyverse} (v2.0.0).
 
-\section{Resultados}
+\subsection{Preprocesamiento}
+Durante este proceso se redujo el tamaño de las DAG`s para que solo tuvieran las variables que se iban a utilizar para la DAG respectiva, asi mismo, se limpiaron los datos en todas las DAG`s utilizando la funcion na.omit en Rstudio para que no existiera ninguna fila con datos vacios. Para la primer DAG solo se seleccionaron las variables siguientes: \texttt{sod, pot, bp, sc, bu}. Para la segunda DAG se seleccionaron las siguientes: \texttt{sod, bp, sc}. Y para la tercer DAG se utilizaron: \texttt{bgr, su, sg, al, sc, bu, pot, sod, bp, rc, hemo, pcv}, para esta tercer DAG tambien se convirtieron todas las variables a tipo numericas.
 
-Todos los valores obtenidos.DAGS que pudieran obtener de todos sus analisis, aquí no deben de discutirlas, simplemente incluir valores y graficas.
+\subsection{Construcción y selección del modelo global}
+Para la construcción de las DAGs se utilizó el criterio de 3 estudiantes de la escuela de 
+medicina de 5to semestre, 2 del Tecnológico de Monterrey campus Guadalajara y 1 de 
+la Universidad Autónoma de Guadalajara. Cada red fue ajustada utilizando la funcion de 
+bnlearn \texttt{bn.fit()} con los valores numéricos de la base de datos \texttt{ckd.csv}
+y evaluada con los criterios de información BIC y AIC mediante \texttt{score()}.
+
+\subsection{Estrategia analítica por pregunta de investigación}
+Para cada pregunta se utilizo un DAG distinto tomando en cuenta lo que nos interesaba 
+saber, se ajstaron con \texttt{bn.fit()} y se encontraron probabilidades condicionales 
+con \texttt{cpquery()} (utilizando una \(n=10^{6}\) y verificado con ponderación por
+verosimilitud, \texttt{method="lw"}).
 
 
-\section{Discuciones}
-Interpretación muy extensa de resultados obtenidos. 
+\section{Aplicación}
+
+\subsection{Resultados}
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{DAG1N.jpeg}
+        \caption{DAG 1}
+        \label{fig:dag1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{DAG2N.jpeg}
+        \caption{DAG 2}
+        \label{fig:dag2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.31\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{DAG3N.jpeg}
+        \caption{DAG 3}
+        \label{fig:dag3}
+    \end{subfigure}
+
+    \caption{DAGs propuestos para representar las relaciones 
+    de dependencia entre las variables de interés.}
+    \label{fig:dags}
+\end{figure}
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Comparación de los modelos lineales y no paramétricos mediante los criterios BIC y AIC.}
+    \label{tab:aic_bic_dags}
+    
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lrrrrlr}
+        \toprule
+        \textbf{DAG} &
+        \textbf{BIC lineal} &
+        \makecell{\textbf{BIC no}\\\textbf{paramétrico}} &
+        \textbf{Mejor BIC} &
+        \textbf{AIC lineal} &
+        \makecell{\textbf{AIC no}\\\textbf{paramétrico}} &
+        \textbf{Mejor AIC} \\
+        \midrule
+        
+        DAG 1 &
+        \textbf{-5458.132} &
+        -5465.007 &
+        \makecell[l]{Lineal\\(+6.875)} &
+        -5434.101 &
+        \textbf{-5431.521} &
+        \makecell[l]{No param.\\(+2.580)} \\
+        
+        \addlinespace
+        
+        DAG 2 &
+        \textbf{-3333.424} &
+        -3341.827 &
+        \makecell[l]{Lineal\\(+8.403)} &
+        -3318.582 &
+        \textbf{-3316.674} &
+        \makecell[l]{No param.\\(+1.908)} \\
+        
+        \addlinespace
+        
+        DAG 3 &
+        -5693.505 &
+        \textbf{-5605.652} &
+        \makecell[l]{No param.\\(+87.853)} &
+        -5636.931 &
+        \textbf{-5481.793} &
+        \makecell[l]{No param.\\(+155.138)} \\
+        
+        \bottomrule
+    \end{tabular}%
+    }
+    
+    \begin{flushleft}
+        \footnotesize
+        \textit{Nota.} Los valores entre paréntesis indican la diferencia 
+        entre el mejor modelo y la alternativa dentro de cada DAG.
+    \end{flushleft}
+\end{table}
+
+\subsection{Discuciones}
+
 
 \section{Conclusiones}
 
