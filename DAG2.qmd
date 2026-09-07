@@ -11,28 +11,31 @@ editor: source
 library(tidyverse)
 library(bnlearn)
 library(mgcv)
-
+library(gratia)
 
 ```
 
 ```{r}
 
-data = read_csv("data/ckd.csv")
+data = read.csv("data/ckd.csv")
 head(data)
 ```
 
 ```{r}
+data$rc = as.numeric(data$rc)
 data = data|>
-  select(sod, bp, sc)
+  select(sod, bp, sc, hemo, bu,pot, rc)
 
 
 clean_data = na.omit(data)
+clean_data <- type.convert(clean_data, "numeric")/100*100
+
 clean_data
 
 ```
 
 ```{r}
-dag =model2network("[sc|bp][sod][bp|sod]")
+dag =model2network("[bu|sod:bp][rc][hemo|rc][sc|bp][sod][pot][bp|sod:hemo:pot]")
 ```
 
 ```{r}
@@ -40,51 +43,30 @@ graphviz.plot(dag, shape = "ellipse")
 ```
 
 ```{r}
-ckd_fit = bn.fit(dag, data=data)
-ckd_fit$bp
-ckd_fit$sc
-```
-
-```{r}
-##Esto efectivamente coincide con lo de arriba intercept:104.9604284   pot:0.3689704  sod:-0.2220313 
-mod_lm = lm(bp ~ sod, data = data)
-coef(mod_lm)
-
-```
-
-```{r}
-install.packages("mgcv")
-
-```
-
-```{r}
-library(mgcv)
-library(gratia)
+ckd_fit = bn.fit(dag, data=clean_data)
 
 ```
 
 ```{r}
 ##gam(hijo ~ padres)
-mod_gam_bp = gam(bp ~ s(sod), data = data, method = "REML")
-
-mod_gam_sc = gam(sc ~ s(bp), data = data, method = "REML")
-
-plot(mod_gam_bp, residuals = TRUE, shade = TRUE)
-plot(mod_gam_sc, residuals = TRUE, shade = TRUE)
-
+mod_rc = lm(rc ~ 1, data = clean_data)
+mod_pot = lm(pot ~ 1 , data = clean_data)
+mod_sod = lm(sod ~ 1 , data = clean_data)
+mod_gam_hemo = gam(hemo ~ s(rc), data = clean_data)
+mod_gam_bp = gam(bp ~ s(hemo) + s(pot) + s(sod), data = clean_data)
+mod_gam_sc = gam(sc ~ s(bp, k = 3), data = clean_data)
+mod_gam_bu = gam(bu ~ s(bp, k = 3) + s(sod, k = 3), data = data, method = "REML")
 ```
 
 ```{r}
-mod_sod = lm(sod~1, data = clean_data)
-mod_gam_bp = gam(bp ~ s(sod), data = clean_data)
-mod_gam_sc = gam(sc ~ s(bp, k = 1), data = clean_data)
-
--1/2*(BIC(mod_sod)+BIC(mod_gam_bp)+BIC(mod_gam_sc))
+-1/2*(BIC(mod_sod)+ BIC(mod_rc) + BIC(mod_pot) + BIC(mod_gam_bp)+BIC(mod_gam_sc)+ BIC(mod_gam_bu)+BIC(mod_gam_hemo))
+-1/2*(AIC(mod_sod)+ AIC(mod_rc) + AIC(mod_pot) + AIC(mod_gam_bp)+AIC(mod_gam_sc)+ AIC(mod_gam_bu)+AIC(mod_gam_hemo))
 ```
 
 ```{r}
 #BIC
 score(dag, data = clean_data, type = "bic-g")
+score(dag, data = clean_data, type = "aic-g")
 
 ```
 

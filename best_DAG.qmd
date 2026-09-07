@@ -24,7 +24,7 @@ head(data)
 
 ```{r}
 data = data|>
-  select(bgr, su, sg, al, sc, bu, pot, sod, bp, rc, hemo, pcv)
+  select(bgr, su, sg, al, sc, bu, pot, sod, bp, rc, hemo, pcv, wc, rc)
 
 
 clean_data = na.omit(data)
@@ -34,28 +34,24 @@ head(clean_data)
 ```
 
 ```{r}
-dag =model2network("[bgr][al][sc][su|bgr][sg|su:al][bu|sc][sod|sc][pot|sc][bp|sc][rc|sc][hemo|rc][pcv|hemo]")
+best_DAG = hc(clean_data)
 ```
 
 ```{r}
-graphviz.plot(dag, shape = "ellipse")
+graphviz.plot(best_DAG, shape = "ellipse")
 ```
 
 ```{r}
-ckd_fit = bn.fit(dag, data=clean_data)
-ckd_fit$su
-ckd_fit$sg
+ckd_fit = bn.fit(best_DAG, data=clean_data)
+
 ```
 ```{r}
-ckd_fit$pcv
-ckd_fit$hemo
-ckd_fit$rc
+#GAM
+
+
+
 ```
-```{r}
-mod_lmsg = lm(sg ~ al + su, data= clean_data)
-coef(mod_lmsg)
-summary(mod_lmsg)
-```
+
 
 
 
