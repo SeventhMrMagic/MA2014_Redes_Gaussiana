@@ -120,6 +120,107 @@
       \verb 10.1038/sj.ki.5001794
       \endverb
     \endentry
+    \entry{Navdeep}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f1f2132a9433851b81a253babc489952}{%
+           family={N},
+           familyi={N\bibinitperiod},
+           given={Tangri},
+           giveni={T\bibinitperiod}}}%
+        {{hash=dd680a318e5c665da4fce5b9fadb0259}{%
+           family={LA},
+           familyi={L\bibinitperiod},
+           given={Stevens},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6c0e55208007dda410f7f976c8ec8f47}{%
+           family={J},
+           familyi={J\bibinitperiod},
+           given={Griffith},
+           giveni={G\bibinitperiod}}}%
+        {{hash=38026ba4ee6b102b47bf3ffb41325c8f}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{9363b546aa5dde25518d60b2af7f2282}
+      \strng{fullhash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{fullhashraw}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{bibnamehash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{authorbibnamehash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{authornamehash}{9363b546aa5dde25518d60b2af7f2282}
+      \strng{authorfullhash}{ae11e530163fad7cec3c6afc00a3a192}
+      \strng{authorfullhashraw}{ae11e530163fad7cec3c6afc00a3a192}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{JAMA}
+      \field{number}{15}
+      \field{title}{A Predictive Model for Progression of Chronic Kidney Disease to Kidney Failure}
+      \field{volume}{305}
+      \field{year}{2011}
+      \field{pages}{1553\bibrangedash 1559}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1001/jama.2011.451
+      \endverb
+    \endentry
+    \entry{Kyrimi}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=841f2bd8b8651a543b3b260bdc93c1d9}{%
+           family={Kyrimi},
+           familyi={K\bibinitperiod},
+           given={Evangelia},
+           giveni={E\bibinitperiod}}}%
+        {{hash=f68be353f922ce33c73099b867fd282b}{%
+           family={McLachlan},
+           familyi={M\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d6cb89d2cf6fd0884afbc16c97644417}{%
+           family={Dube},
+           familyi={D\bibinitperiod},
+           given={Kudakwashe},
+           giveni={K\bibinitperiod}}}%
+        {{hash=f4f329f10740afba9d4624c911735d3d}{%
+           family={Neves},
+           familyi={N\bibinitperiod},
+           given={Mariana\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=7832b40f126e4b99773388c15a7235e8}{%
+           family={Fahmi},
+           familyi={F\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2b1d6ef14aea29937d7ad24ba6e10521}{%
+           family={Fenton},
+           familyi={F\bibinitperiod},
+           given={Norman},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{e273a5ad18e604a14d71cea3e346ae0b}
+      \strng{fullhash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{fullhashraw}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{bibnamehash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{authorbibnamehash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{authornamehash}{e273a5ad18e604a14d71cea3e346ae0b}
+      \strng{authorfullhash}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \strng{authorfullhashraw}{e4755b2cc4fca78cdd0c91f28f7e51b3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Artificial Intelligence in Medicine}
+      \field{title}{A comprehensive scoping review of Bayesian networks in healthcare: Past, present and future}
+      \field{volume}{117}
+      \field{year}{2021}
+      \field{pages}{1553\bibrangedash 1559}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.artmed.2021.102108.
+      \endverb
+    \endentry
     \entry{R}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=dcdebb6b35bff7c0568bf8c50ef8626d}{%
@@ -140,8 +241,8 @@
       \strng{authornamehash}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{authorfullhash}{dcdebb6b35bff7c0568bf8c50ef8626d}
       \strng{authorfullhashraw}{dcdebb6b35bff7c0568bf8c50ef8626d}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{R: A Language and Environment for Statistical Computing}
@@ -181,8 +282,8 @@
       \strng{authornamehash}{23bd3bda4e647feb93d8058cd957bbf6}
       \strng{authorfullhash}{23bd3bda4e647feb93d8058cd957bbf6}
       \strng{authorfullhashraw}{23bd3bda4e647feb93d8058cd957bbf6}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2nd}

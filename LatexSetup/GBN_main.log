@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.5)  6 SEP 2026 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.5)  6 SEP 2026 20:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1460,10 +1460,10 @@ File: t3cmss.fd 2001/12/31 TIPA font definitions
  <./simbolo-tec-blue.png
 
 pdfTeX warning: pdflatex (file ./simbolo-tec-blue.png): large interlaced PNG might cause out of memory (use non-interlaced PNG to fix this)
-> <./TEC.png>]
+> <./TEC.png>] [2] [3] [4]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 114.
- [2] [3] 
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 179.
+ [5] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (GBN_main.aux (abstract.aux)
 LaTeX Info: Redefining \. on input line 20.
@@ -1480,17 +1480,17 @@ Package logreq Info: Writing requests to 'GBN_main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46395 strings out of 467441
- 920011 string characters out of 5407592
- 2025315 words of memory out of 5000000
- 74815 multiletter control sequences out of 15000+600000
- 648588 words of font info for 160 fonts, out of 8000000 for 9000
+ 46429 strings out of 467441
+ 920497 string characters out of 5407592
+ 2025415 words of memory out of 5000000
+ 74821 multiletter control sequences out of 15000+600000
+ 649751 words of font info for 173 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,12n,131p,1054b,2241s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,12n,131p,1054b,1788s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on GBN_main.pdf (3 pages, 270740 bytes).
+Output written on GBN_main.pdf (5 pages, 278985 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 21 named destinations out of 1000 (max. 500000)
- 48247 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 145 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 50295 words of extra memory for PDF output out of 51595 (max. 10000000)
 

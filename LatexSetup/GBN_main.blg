@@ -1,17 +1,17 @@
 [0] Config.pm:329> INFO - This is Biber 2.22
 [0] Config.pm:332> INFO - Logfile is 'GBN_main.blg'
-[103] biber-MSWIN64:342> INFO - === 
-[157] Biber.pm:421> INFO - Reading 'GBN_main.bcf'
-[248] Biber.pm:1002> INFO - Found 5 citekeys in bib section 0
-[262] Biber.pm:4487> INFO - Processing section 0
-[272] Biber.pm:4680> INFO - Looking for bibtex file 'references.bib' for section 0
-[322] bibtex.pm:1713> INFO - LaTeX decoding ...
-[334] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[382] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[382] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[382] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'es-ES'
-[390] bbl.pm:676> INFO - Writing 'GBN_main.bbl' with encoding 'UTF-8'
-[394] bbl.pm:779> INFO - Output to GBN_main.bbl
-[395] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\DIEGO\AppData\Local\Temp\biber_tmp_z9U0\33e59b5ca9ec342068223d604c3f8d55_29984.utf8, line 24, warning: 174 characters of junk seen at toplevel
-[395] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\DIEGO\AppData\Local\Temp\biber_tmp_z9U0\33e59b5ca9ec342068223d604c3f8d55_29984.utf8, line 53, warning: 59 characters of junk seen at toplevel
-[395] Biber.pm:134> INFO - WARNINGS: 2
+[88] biber-MSWIN64:342> INFO - === 
+[126] Biber.pm:421> INFO - Reading 'GBN_main.bcf'
+[204] Biber.pm:1002> INFO - Found 7 citekeys in bib section 0
+[214] Biber.pm:4487> INFO - Processing section 0
+[222] Biber.pm:4680> INFO - Looking for bibtex file 'references.bib' for section 0
+[266] bibtex.pm:1713> INFO - LaTeX decoding ...
+[277] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[328] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[328] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[328] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'es-ES'
+[334] bbl.pm:676> INFO - Writing 'GBN_main.bbl' with encoding 'UTF-8'
+[337] bbl.pm:779> INFO - Output to GBN_main.bbl
+[337] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\DIEGO\AppData\Local\Temp\biber_tmp_v6Vk\33e59b5ca9ec342068223d604c3f8d55_23520.utf8, line 24, warning: 174 characters of junk seen at toplevel
+[337] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\DIEGO\AppData\Local\Temp\biber_tmp_v6Vk\33e59b5ca9ec342068223d604c3f8d55_23520.utf8, line 53, warning: 59 characters of junk seen at toplevel
+[337] Biber.pm:134> INFO - WARNINGS: 2

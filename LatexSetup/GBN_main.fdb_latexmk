@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber GBN_main"] 1788739347.14349 "GBN_main.bcf" "GBN_main.bbl" "GBN_main" 1788740202.30267 0
-  "GBN_main.bcf" 1788740202 108368 c943f6061333d0dee9aebc3cecd76433 "pdflatex"
-  "references.bib" 1788738552 2388 7d822511dadade07d0ff185b98c39717 ""
+["biber GBN_main"] 1788747495.68584 "GBN_main.bcf" "GBN_main.bbl" "GBN_main" 1788747684.3297 0
+  "GBN_main.bcf" 1788747684 108550 c462437ec91291e9c4634115400ac334 "pdflatex"
+  "references.bib" 1788747490 3248 41b0cd894378bfb14fd54789de3caeda ""
   (generated)
   "GBN_main.bbl"
   "GBN_main.blg"
   (rewritten before read)
-["pdflatex"] 1788740199.47793 "c:/Users/DIEGO/DOCS_Latex/Articulo_GBN/GBN_main.tex" "GBN_main.pdf" "GBN_main" 1788740202.30362 0
+["pdflatex"] 1788747681.66679 "c:/Users/DIEGO/DOCS_Latex/Articulo_GBN/GBN_main.tex" "GBN_main.pdf" "GBN_main" 1788747684.33052 0
   "Academic.cls" 1788739550 9232 3548be7d72d4d8924b11c66b541ed96f ""
   "C:/Users/DIEGO/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1788726389 80937 91001db6d4ae332437b4b739862cda02 ""
   "C:/Users/DIEGO/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1788654126 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -287,16 +287,16 @@
   "C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/tex/latex/xfrac/xfrac.sty" 1718270407 14945 a207ee7fd6b8cf6d82afb367c583ddd3 ""
   "C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "GBN_main.aux" 1788740202 2724 8785d3c5b17f3b58d91b2d64090c1609 "pdflatex"
-  "GBN_main.bbl" 1788739349 7655 4f3fe2b425ae6468f5c34546f0405506 "biber GBN_main"
-  "GBN_main.out" 1788740202 1804 f9b96aadbd8c6b553ecf111e0f9cf1c9 "pdflatex"
-  "GBN_main.pre" 1788740200 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "GBN_main.run.xml" 1788740202 2468 3f090e7302025dc472bc958f20305e9f "pdflatex"
-  "GBN_main.tex" 1788740198 4384 7f78acf4ef3dbe7d7da75edd1242952f ""
+  "GBN_main.aux" 1788747684 3028 1ca9515004ad4874eeb597c43fb3b116 "pdflatex"
+  "GBN_main.bbl" 1788747497 11803 81efa6d2be6f659ad50175e9cc96c5f9 "biber GBN_main"
+  "GBN_main.out" 1788747684 1804 f9b96aadbd8c6b553ecf111e0f9cf1c9 "pdflatex"
+  "GBN_main.pre" 1788747682 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "GBN_main.run.xml" 1788747684 2468 3f090e7302025dc472bc958f20305e9f "pdflatex"
+  "GBN_main.tex" 1788747681 9485 eeab24cf2e87da0a1f518bf9c7dc9753 ""
   "TEC.png" 1788654247 57689 63944758117cae0a965eef8cd6433720 ""
-  "abstract.aux" 1788740201 4719 83ee1e34ccce466242753a7dce5e4514 "pdflatex"
+  "abstract.aux" 1788747683 4719 83ee1e34ccce466242753a7dce5e4514 "pdflatex"
   "abstract.tex" 1788740198 51 f11f8ba5171cfd22d74fecc67912758f ""
-  "c:/Users/DIEGO/DOCS_Latex/Articulo_GBN/GBN_main.tex" 1788740198 4384 7f78acf4ef3dbe7d7da75edd1242952f ""
+  "c:/Users/DIEGO/DOCS_Latex/Articulo_GBN/GBN_main.tex" 1788747681 9485 eeab24cf2e87da0a1f518bf9c7dc9753 ""
   "simbolo-tec-blue.png" 1764022575 235655 c68b71e6c38bf96295731551cc9ae89d ""
   (generated)
   "GBN_main.aux"
