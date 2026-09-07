@@ -157,16 +157,28 @@ la Universidad Autónoma de Guadalajara. Cada red fue ajustada utilizando la fun
 bnlearn \texttt{bn.fit()} con los valores numéricos de la base de datos \texttt{ckd.csv}
 y evaluada con los criterios de información BIC y AIC mediante \texttt{score()}.
 
-\subsection{Estrategia analítica por pregunta de investigación}
-Para cada pregunta se utilizo un DAG distinto tomando en cuenta lo que nos interesaba 
-saber, se ajstaron con \texttt{bn.fit()} y se encontraron probabilidades condicionales 
-con \texttt{cpquery()} (utilizando una \(n=10^{6}\) y verificado con ponderación por
+\subsection{Estrategia analítica para consultas probabilísticas}
+Para la selección de las consultas probabilísticas se utilizó el criterio de los 3 estudiantes de la escuela de 
+medicina de 5to semestre, 2 del Tecnológico de Monterrey campus Guadalajara y 1 de 
+la Universidad Autónoma de Guadalajara mencionados anteriormente. se ajstaron con \texttt{bn.fit()} y 
+se encontraron probabilidades condicionales con \texttt{cpquery()} (utilizando una \(n=10^{6}\) y verificado con ponderación por
 verosimilitud, \texttt{method="lw"}).
 
 
 \section{Aplicación}
 
 \subsection{Resultados}
+
+\subsubsection{Selección de la estructura}
+
+Las tres estructuras propuestas fueron evaluadas mediante los criterios de
+información BIC y AIC implementados en el paquete \texttt{bnlearn}. Los 
+resultados obtenidos se presentan en el Cuadro~\ref{tab:aic_bic_dags}.
+
+La DAG 2 presentó los valores más altos de BIC y AIC entre las tres estructuras
+evaluadas, tanto para el modelo lineal como para el modelo no paramétrico.
+Por este motivo, se seleccionó la DAG 2 como estructura base para realizar
+las consultas de inferencia probabilística propuestas por los especialistas.
 
 \begin{figure}[H]
     \centering
@@ -180,7 +192,7 @@ verosimilitud, \texttt{method="lw"}).
     \hfill
     \begin{subfigure}[b]{0.31\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{DAG2N.jpeg}
+        \includegraphics[width=\textwidth]{DAG2.1.jpeg}
         \caption{DAG 2}
         \label{fig:dag2}
     \end{subfigure}
@@ -226,12 +238,12 @@ verosimilitud, \texttt{method="lw"}).
         \addlinespace
         
         DAG 2 &
-        \textbf{-3333.424} &
-        -3341.827 &
-        \makecell[l]{Lineal\\(+8.403)} &
-        -3318.582 &
-        \textbf{-3316.674} &
-        \makecell[l]{No param.\\(+1.908)} \\
+        -4810.54 &
+        \textbf{-4774.671} &
+        \makecell[l]{No param.\\(+35.869)} &
+        -4781.244 &
+        \textbf{-4720.92} &
+        \makecell[l]{No param.\\(+60.324)} \\
         
         \addlinespace
         
@@ -254,8 +266,184 @@ verosimilitud, \texttt{method="lw"}).
     \end{flushleft}
 \end{table}
 
-\subsection{Discuciones}
+\subsubsection{Comparación entre el modelo lineal y no paramétrico}
 
+Se evaluó si el uso de un modelo no paramétrico mejoraba los criterios de
+información respecto al modelo lineal. Para BIC, el modelo lineal obtuvo un
+score de $-4810.540$, mientras que el modelo no paramétrico alcanzó
+$-4774.671$, lo que representa una mejora de $35.869$ unidades. De manera
+similar, el AIC aumentó de $-4781.244$ en el modelo lineal a $-4720.92$ en
+el modelo no paramétrico, correspondiente a una diferencia de $+60.324$
+unidades. Estos resultados indican que la incorporación del
+modelo no paramétrico mejora tanto el BIC como el AIC de la DAG 2. Sin embargo,
+en este trabajo las consultas probabilísticas posteriores fueron realizadas
+sobre el ajuste lineal de la red, por lo que el modelo no paramétrico se
+utilizó únicamente como una alternativa para evaluar la calidad de ajuste.
+
+\subsubsection{Consultas probabilísticas}
+La primera consulta evaluó la probabilidad de presentar niveles elevados de
+creatinina sérica, definidos como $\mathrm{sc}>1.4$, dado un nivel de sodio
+superior a 145. El modelo estimó una probabilidad de $0.6277$, equivalente
+al $62.77\%$.
+
+Al agregar como evidencia simultánea un nivel de potasio mayor o igual a
+5.1, la probabilidad estimada de creatinina sérica elevada fue de $0.6284$
+($62.84\%$). Por lo tanto, la incorporación del potasio elevado produjo un
+cambio reducido en la probabilidad estimada respecto a considerar únicamente
+el sodio elevado.
+
+En la tercera consulta se evaluó la probabilidad de presentar hiperpotasemia,
+definida como un nivel de potasio mayor o igual a 5.1, en presencia de
+creatinina sérica superior a 1.4 y urea superior a 40. La probabilidad
+obtenida fue de $0.4313$, correspondiente al $43.13\%$.
+
+La cuarta consulta estimó la probabilidad de presentar anemia, operacionalizada
+como una concentración de hemoglobina inferior a 12 g/dL, dado un nivel de
+creatinina sérica de 3.0 mg/dL y un conteo de eritrocitos de
+3.5 millones/$\mu$L. La red estimó una probabilidad de $0.8096$, equivalente
+al $80.96\%$.
+
+Finalmente, para pacientes con presión arterial superior a 140, el modelo
+estimó una probabilidad de $1.0000$ de presentar creatinina sérica superior
+a 1.4. Este resultado corresponde a la distribución probabilística aprendida
+por la red a partir de los datos utilizados y debe interpretarse dentro de
+los límites del modelo.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Resultados de las consultas probabilísticas realizadas sobre 
+    el modelo lineal de la DAG 2.}
+    \label{tab:queries_dag2}
+    
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{cllc}
+        \toprule
+        \textbf{Consulta} &
+        \textbf{Evento de interés} &
+        \textbf{Evidencia} &
+        \textbf{Probabilidad} \\
+        \midrule
+        
+        $Q_1$ &
+        $\mathrm{sc}>1.4$ &
+        $\mathrm{sod}>145$ &
+        $0.6277\;(62.77\%)$ \\
+        
+        $Q_2$ &
+        $\mathrm{sc}>1.4$ &
+        $\mathrm{sod}>145,\ \mathrm{pot}\geq5.1$ &
+        $0.6284\;(62.84\%)$ \\
+        
+        $Q_3$ &
+        $\mathrm{pot}\geq5.1$ &
+        $\mathrm{sc}>1.4,\ \mathrm{bu}>40$ &
+        $0.4313\;(43.13\%)$ \\
+        
+        $Q_4$ &
+        $\mathrm{hemo}<12$ &
+        $\mathrm{sc}=3.0,\ \mathrm{rc}=3.5$ &
+        $0.8096\;(80.96\%)$ \\
+        
+        $Q_5$ &
+        $\mathrm{sc}>1.4$ &
+        $\mathrm{bp}>140$ &
+        $1.0000\;(100\%)$ \\
+        
+        \bottomrule
+    \end{tabular}%
+    }
+    
+    \begin{flushleft}
+        \footnotesize
+        \textit{Nota.} 
+        Las consultas $Q_1$, $Q_2$, $Q_3$ y $Q_5$ utilizaron muestreo lógico
+        (\texttt{method = "ls"}), mientras que $Q_4$ utilizó ponderación por
+        verosimilitud (\texttt{method = "lw"}).
+    \end{flushleft}
+\end{table}
+
+
+\subsection{Discuciones}
+\subsubsection{ajuste de la DAG2}
+Los criterios de información mostraron una preferencia consistente por la
+DAG 2 frente a las otras estructuras propuestas. Debido a que BIC y AIC
+penalizan la complejidad del modelo además de considerar su ajuste a los
+datos, el resultado sugiere que las relaciones de dependencia representadas
+por esta estructura proporcionan un balance más favorable entre ajuste y
+complejidad dentro de las alternativas evaluadas.
+
+Al estudiar específicamente la DAG 2, el modelo no paramétrico obtuvo mejores
+scores que el modelo lineal para ambos criterios. El incremento de $35.869$
+unidades en BIC y de $60.324$ unidades en AIC indica que la alternativa no
+paramétrica logró representar de mejor manera los datos de esta estructura
+de acuerdo con ambos criterios. Este resultado sugiere que algunas de las
+relaciones entre los biomarcadores podrían no quedar completamente descritas
+por una dependencia estrictamente lineal.
+
+\subsubsection{interpretación de las consultas}
+Las consultas $Q_1$ y $Q_2$ permiten estudiar el efecto de agregar nueva
+evidencia al modelo. Cuando únicamente se condicionó por sodio elevado,
+la probabilidad de creatinina sérica elevada fue de $62.77\%$. Al incorporar
+adicionalmente un nivel elevado de potasio, la probabilidad aumentó a
+$62.84\%$, una diferencia de aproximadamente $0.07$ puntos porcentuales.
+
+Dentro de la estructura y parametrización de la DAG 2, este cambio es
+mínimo, lo cual sugiere que la evidencia adicional proporcionada por el
+potasio aporta poca información para modificar la probabilidad posterior
+de creatinina elevada una vez conocido el nivel alto de sodio. Sin embargo,
+este resultado describe una dependencia probabilística dentro del modelo y
+no implica que el potasio carezca de relevancia clínica en la enfermedad
+renal.
+
+En $Q_3$, la presencia conjunta de creatinina y urea elevadas produjo una
+probabilidad estimada de hiperpotasemia del $43.13\%$. El resultado indica
+que, aun bajo dicha evidencia, el modelo no asigna una probabilidad mayor
+al $50\%$ al evento de hiperpotasemia. Esto muestra que la presencia de
+creatinina y urea elevadas no determina de manera automática un nivel
+elevado de potasio dentro de la distribución aprendida por la red.
+
+Este comportamiento resulta relevante porque evidencia una de las ventajas
+de un modelo probabilístico: la presencia de ciertos biomarcadores alterados
+no conduce necesariamente a un resultado determinista en los demás nodos,
+sino a una actualización de sus distribuciones condicionales.
+
+La consulta $Q_4$ presentó una de las probabilidades más altas obtenidas.
+Ante una creatinina sérica de 3.0 mg/dL y un conteo de eritrocitos de
+3.5 millones/$\mu$L, la red estimó una probabilidad de $80.96\%$ de observar
+una concentración de hemoglobina inferior a 12 g/dL.
+
+Este resultado muestra cómo la combinación de evidencia proveniente de un
+marcador asociado con la función renal y de un parámetro hematológico puede
+modificar sustancialmente la distribución posterior de la hemoglobina.
+Debe enfatizarse que esta asociación corresponde a la distribución aprendida
+por la red y no demuestra por sí misma una relación causal entre las
+variables.
+
+La consulta $Q_5$ produjo una probabilidad estimada de $1.0$ para creatinina
+sérica elevada cuando la presión arterial fue superior a 140. Aunque dentro
+del modelo este resultado corresponde a una probabilidad del $100\%$, no
+debe interpretarse como una regla clínica determinista ni generalizarse a
+la población.
+
+Un valor extremo de este tipo puede depender de la distribución aprendida
+por la red, del número de observaciones disponibles en la región definida
+por $\mathrm{bp}>140$, de la estructura de la DAG y del procedimiento de
+inferencia aproximada. Por ello, el resultado se interpreta exclusivamente
+como una propiedad del modelo ajustado a la muestra analizada.
+
+Una consulta adicional propuesta consistió en determinar la probabilidad de
+presentar ERC a partir del nivel de glucosa y de una presión arterial elevada.
+Esta consulta no pudo ser evaluada mediante la GBN construida, debido a que
+el evento de interés corresponde a \texttt{class}, una variable categórica
+con niveles \texttt{ckd} y \texttt{notckd}.
+
+La red utilizada en el presente estudio fue planteada como una red bayesiana
+gaussiana para variables continuas, por lo que incorporar \texttt{class}
+como si fuese una variable numérica continua no sería metodológicamente
+apropiado. Una extensión del trabajo podría emplear una red bayesiana
+gaussiana condicional, capaz de incorporar conjuntamente variables discretas
+y continuas, o bien una red bayesiana completamente discreta después de
+definir intervalos clínicamente justificables para los biomarcadores.
 
 \section{Conclusiones}
 
