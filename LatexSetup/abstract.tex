@@ -2,13 +2,17 @@
 \noindent\textbf{Resumen}
 %Abstract below
 
-La enfermedad renal crónica (ERC) es una pérdida progresiva de la función renal que 
-afectó a más de 800 millones de personas en 2017, con frecuencia subdiagnosticada 
-por presentar síntomas en etapas avanzadas. Su detección temprana podría reducir 
-significativamente su carga clínica y económica. El siguiente estudio empleó un enfoque 
-cuantitativo no experimental basado en redes bayesianas gaussianas (GBN) para modelar las 
-relaciones de dependencia probabilística entre biomarcadores clínicos asociados a la ERC, 
-utilizando la base de datos ckd.csv. Se construyeron tres grafos acíclicos dirigidos 
-(DAGs) con distintos subconjuntos de variables, definidos con apoyo de estudiantes y 
-profesores de medicina, ajustados con bn.fit() en R (paquete bnlearn) y evaluados mediante 
-BIC y AIC.
+La enfermedad renal crónica (ERC) es una pérdida progresiva de la función renal que afectó a más de 800 millones de personas en 2017, 
+con frecuencia subdiagnosticada por presentar síntomas en etapas avanzadas. Su detección temprana podría reducir significativamente su 
+carga clínica y económica. El siguiente estudio empleó un enfoque cuantitativo no experimental basado en redes bayesianas gaussianas (GBN) 
+para modelar las relaciones de dependencia probabilística entre biomarcadores clínicos asociados a la ERC, utilizando la base de datos 
+ckd.csv. Se construyeron tres grafos acíclicos dirigidos (DAGs) con distintos subconjuntos de variables, definidos con apoyo de estudiantes 
+y profesores de medicina, ajustados con bn.fit() en R mediante el paquete bnlearn y evaluados utilizando los criterios BIC y AIC. La DAG 2 
+presentó el mejor desempeño global y fue seleccionada para realizar las consultas probabilísticas propuestas por especialistas. Los 
+resultados mostraron probabilidades de 62.77 % de creatinina sérica elevada dado un nivel alto de sodio, 62.84 % al considerar 
+simultáneamente sodio y potasio elevados, 43.13 % de hiperpotasemia ante creatinina y urea elevadas, 80.96 % de hemoglobina menor a 12 g/dL 
+ante una creatinina de 3.0 mg/dL y un conteo de eritrocitos de 3.5 millones/\(\mu\)L, y 100 % de creatinina elevada ante presión arterial 
+superior a 140 dentro del modelo ajustado. Asimismo, el modelo no paramétrico mejoró los valores de BIC y AIC de la DAG 2 respecto al modelo 
+lineal, aunque las consultas probabilísticas se realizaron sobre este último. Finalmente, se identificó como limitación la imposibilidad de 
+incorporar directamente variables categóricas, como el diagnóstico de ERC, en una red exclusivamente gaussiana, proponiéndose como extensión 
+futura el uso de redes bayesianas gaussianas condicionales o redes discretas.
