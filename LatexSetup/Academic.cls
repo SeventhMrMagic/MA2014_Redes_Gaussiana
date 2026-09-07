@@ -23,7 +23,6 @@
 %twocolumn
 
 %Packages
-
 \RequirePackage{tikz}
 \RequirePackage{kantlipsum}
 \RequirePackage{lipsum}
@@ -55,7 +54,6 @@
 \RequirePackage{appendix}
 \RequirePackage{emptypage}
 \RequirePackage{etoolbox}
-
 
 \usepackage{booktabs}
 \usepackage{ marvosym }
@@ -125,7 +123,7 @@
 }
 
 % Values that can be redefined from the main .tex file
-\newcommand{\Keywords}{Keyword1, keyword2, keyword3}
+\newcommand{\Keywords}{Keyword1, keyword2, keyword3, keyword4, keyword5}
 \newcommand{\myTitle}{Title}
 \newcommand{\MyAuthors}{John J. Smith$^{1}$}
 \newcommand{\MyAffiliations}{$^{1}$Department}

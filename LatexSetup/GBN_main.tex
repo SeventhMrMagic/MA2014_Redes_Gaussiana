@@ -4,7 +4,8 @@
 %Easy customisation of title page
 %TC:ignore
 \myabstract{\include{abstract}}
-\renewcommand{\myTitle}{Uso de Redes Bayesianas Gaussianas para el análisis de la Enfermedad Renal Crónica}
+\renewcommand{\myTitle}{Uso de Redes Bayesianas Gaussianas para comprender 
+el efecto de biomarcadores en la Enfermedad renal crónica: Un análisis probabilístico}
 \renewcommand{\MyAuthors}{%
     Jessica Milagros Cordero Rivera$^{1}$ \quad
     Diego Rodrigo González Ramírez$^{1}$\\[0.2em]
@@ -22,7 +23,7 @@
 
 \renewcommand{\ShortAuthors}{Cordero Rivera et al.}
 
-\renewcommand{\Keywords}{Keyword 1, Keyword 2, Keyword 3}
+\renewcommand{\Keywords}{enfermedad crónica renal, red bayesiana, red bayesiana gaussiana, keyword4, keyword5}
 \maketitle
 %\vspace{-1.9em}\noindent\rule{\textwidth}{1pt} %add this line if not using abstract
 \onehalfspacing
@@ -31,22 +32,76 @@
 \section{Introducción}
 
 
-La enfermedad renal crónica es \cite{CRD}.
+La enfermedad renal crónica (ERC) es la pérdida progresiva de la función de los riñones, 
+afectando su función de eliminar residuos y exceso de agua del cuerpo. Al encontrarse
+en una etapa tardía del ERC el paciente puede experimentar síntomas como, entre otros:
+
+\begin{itemize}
+  \item Piel anormalmente oscura o clara
+  \item Dolor de huesos
+  \item Problemas para concentrarse o pensar
+  \item Fasciculaciones musculares o calambres
+  \item Susceptibilidad a hematomas
+  \item Sed excesiva
+  \item Hinchazón en las manos y en los pies
+\end{itemize}
+
+A muchas personas no se les diagnostica la ERC sino hasta que han perdido 
+gran parte de su función renal.\cite{definicion}. 
+En 2017 la ERC afectó a más de 800 millones de personas y su tasa de mortalidad ha 
+estado en aumento en este siglo. Además, debido a otras enfermedades cómo la diabetes mellitus 
+y la obesidad, el riesgo de padecer ERC aumenta aún más y con ello, sus complicaciones \cite{Csaba}.
+
+Es evidentemente claro que la identificación y diagnóstico de la ERC beneficiaría; para unas, 
+La calidad de vida de millones de personas que podrían desarrollar esta enfermedad en un 
+futuro; y para otras, evitar fallecer por esta enfermedad o complicaciones derivadas de ella. 
+Los estudios epidemiológicos han concientizado sobre el problema de la ERC no 
+diagnosticada y sugieren que su detección y tratamiento tempranos reducirán
+la carga mundial que suponen los pacientes que necesitan diálisis \cite{Taal}.
+
+Sin embargo,
 
 
 \section{Metodología}
 
- En su metodologia, no olviden incluir las versiones de los softwares que utlizan, todas las librerias y datos que emplean, sean muy descriptivos
+\subsection{Enfoque y tipo de estudio}
+Se empleó un enfoque cuantitativo, no experimental, basado en el uso de GBN para encontrar 
+las relaciones de dependencia probabilística entre los biomarcadores
 
+\subsection{Fuente de datos}
+
+
+\subsection{Herramientas}
+Todos los análisis probabilisticos se realizaron utilizando entorno de desarrollo 
+integrado \texttt{RStudio} (v2026.08.2), utilizando el lenguaje de programación 
+estadístico \texttt{R} (v4.5.3) \cite{R} mediante el sistema de código abierto 
+Quarto (v1.8.25), utilizando los paquetes \texttt{bnlearn} (v5.2.1)\cite{Bnlearn} 
+y \texttt{tidyverse} (v2.0.0).
+
+\subsection{Preprocesamiento}
+5
+
+\subsection{Construcción y selección del modelo global}
+Para la construcción de las DAGs se utilizó el criterio de 3 estudiantes de la escuela de 
+medicina de 5to semestre, 2 del Tecnológico de Monterrey campus Guadalajara y 1 de 
+la Universidad Autónoma de Guadalajara. Cada red fue ajustada utilizando la funcion de 
+bnlearn \texttt{bn.fit()} con los valores numéricos de la base de datos \texttt{ckd.csv}
+y evaluada con los criterios de información BIC y AIC mediante \texttt{score()}.
+
+\subsection{Estrategia analítica por pregunta de investigación}
+Para cada pregunta se utilizo un DAG distinto tomando en cuenta lo que nos interesaba 
+saber, se ajstaron con \texttt{bn.fit()} y se encontraron probabilidades condicionales 
+con \texttt{cpquery()} (utilizando una \(n=10^{6}\) y verificado con ponderación por
+verosimilitud, \texttt{method="lw"}).
 
 
 \section{Resultados}
 
-Todos los valores obtenidos.DAGS que pudieran obtener de todos sus analisis, aquí no deben de discutirlas, simplemente incluir valores y graficas.
+
 
 
 \section{Discuciones}
-Interpretación muy extensa de resultados obtenidos. 
+
 
 \section{Conclusiones}
 

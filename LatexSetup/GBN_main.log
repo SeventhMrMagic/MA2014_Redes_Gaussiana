@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.5)  6 SEP 2026 14:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.9.5)  6 SEP 2026 18:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -445,8 +445,8 @@ Package babel Info: Making " an active character on input line 570.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
-LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 37.
-LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 37.
+LaTeX Encoding Info:    Redeclaring text command \guillemotleft (encoding OT1) on input line 36.
+LaTeX Encoding Info:    Redeclaring text command \guillemotright (encoding OT1) on input line 36.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/datetime\datetime.sty
 Package: datetime 2015/03/20 v2.60 Date Time Package
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
@@ -892,8 +892,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip66
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 219.
-Package hyperref Info: Option `hypertexnames' set `true' on input line 219.
+Package hyperref Info: Option `colorlinks' set `true' on input line 217.
+Package hyperref Info: Option `hypertexnames' set `true' on input line 217.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
@@ -1270,10 +1270,10 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'spanish'.
  (GBN_main.aux (abstract.aux)
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 16.
+(babel)             Reported on input line 20.
 )
 \openout1 = `GBN_main.aux'.
 
@@ -1419,42 +1419,39 @@ Package babel Info: Main language set to 'spanish'.
 \openout2 = `abstract.aux'.
 
  (abstract.tex)
-<simbolo-tec-blue.png, id=30, 1606.0pt x 1606.0pt>
+<simbolo-tec-blue.png, id=54, 1606.0pt x 1606.0pt>
 File: simbolo-tec-blue.png Graphic file (type png)
 <use simbolo-tec-blue.png>
-Package pdftex.def Info: simbolo-tec-blue.png  used on input line 28.
+Package pdftex.def Info: simbolo-tec-blue.png  used on input line 29.
 (pdftex.def)             Requested size: 81.5309pt x 81.52998pt.
-<TEC.png, id=32, 860.46469pt x 316.93407pt>
+<TEC.png, id=56, 860.46469pt x 316.93407pt>
 File: TEC.png Graphic file (type png)
 <use TEC.png>
-Package pdftex.def Info: TEC.png  used on input line 28.
+Package pdftex.def Info: TEC.png  used on input line 29.
 (pdftex.def)             Requested size: 81.5309pt x 30.02682pt.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 28.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 29.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for T3+cmss on input line 28.
+LaTeX Font Info:    Trying to load font information for T3+cmss on input line 29.
  (C:\Users\DIEGO\AppData\Local\Programs\MiKTeX\tex/latex/tipa\t3cmss.fd
 File: t3cmss.fd 2001/12/31 TIPA font definitions
-)
-LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 57.
- [1
+) [1
 
 {C:/Users/DIEGO/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
@@ -1463,34 +1460,37 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <12> not available
  <./simbolo-tec-blue.png
 
 pdfTeX warning: pdflatex (file ./simbolo-tec-blue.png): large interlaced PNG might cause out of memory (use non-interlaced PNG to fix this)
-> <./TEC.png>] 
+> <./TEC.png>]
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 114.
+ [2] [3] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (GBN_main.aux (abstract.aux)
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
 )
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
  ***********
 Package rerunfilecheck Info: File `GBN_main.out' has not changed.
-(rerunfilecheck)             Checksum: 368D3E864A6469D61225EDB17D792532;599.
+(rerunfilecheck)             Checksum: F9B96AADBD8C6B553ECF111E0F9CF1C9;1804.
 Package logreq Info: Writing requests to 'GBN_main.run.xml'.
 \openout1 = `GBN_main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46292 strings out of 467441
- 918227 string characters out of 5407592
- 2020095 words of memory out of 5000000
- 74761 multiletter control sequences out of 15000+600000
- 646486 words of font info for 139 fonts, out of 8000000 for 9000
+ 46395 strings out of 467441
+ 920011 string characters out of 5407592
+ 2025315 words of memory out of 5000000
+ 74815 multiletter control sequences out of 15000+600000
+ 648588 words of font info for 160 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,11n,131p,1054b,1788s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb>
-Output written on GBN_main.pdf (1 page, 228252 bytes).
+ 117i,12n,131p,1054b,2241s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/DIEGO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on GBN_main.pdf (3 pages, 270740 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 43591 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 131 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 48247 words of extra memory for PDF output out of 51595 (max. 10000000)
 
